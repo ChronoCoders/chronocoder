@@ -22,8 +22,11 @@ export default function Navbar() {
   return (
     <header className={navClasses}>
       <div className="container mx-auto px-4 flex items-center justify-between">
-        <a href="#home" className="text-2xl font-bold tracking-tight text-white">
-          Chrono<span className="gradient-text">Coder</span>
+        <a href="#home" className="flex items-center text-2xl font-bold tracking-tight text-white">
+          <div className="flex flex-col leading-none mr-1">
+            <span>Chrono</span>
+            <span>Coder</span>
+          </div>
         </a>
 
         {/* Mobile menu button */}
@@ -37,17 +40,11 @@ export default function Navbar() {
 
         {/* Desktop menu */}
         <nav className="hidden lg:flex items-center space-x-8">
-          <a href="#home" className="nav-link text-white hover:text-primary-light font-medium transition-colors duration-200">Home</a>
           <a href="#about" className="nav-link text-white hover:text-primary-light font-medium transition-colors duration-200">About</a>
-          <a href="#expertise" className="nav-link text-white hover:text-primary-light font-medium transition-colors duration-200">Expertise</a>
+          <a href="#skills" className="nav-link text-white hover:text-primary-light font-medium transition-colors duration-200">Skills</a>
+          <a href="#services" className="nav-link text-white hover:text-primary-light font-medium transition-colors duration-200">Services</a>
           <a href="#projects" className="nav-link text-white hover:text-primary-light font-medium transition-colors duration-200">Projects</a>
           <a href="#contact" className="nav-link text-white hover:text-primary-light font-medium transition-colors duration-200">Contact</a>
-          <a 
-            href="#contact" 
-            className="bg-gradient px-4 py-2 rounded-md font-semibold text-white hover:opacity-90 transition-opacity duration-200"
-          >
-            Let's Build Together
-          </a>
         </nav>
       </div>
 
@@ -61,13 +58,6 @@ export default function Navbar() {
         >
           <nav className="flex flex-col space-y-4">
             <a 
-              href="#home" 
-              className="nav-link text-white font-medium"
-              onClick={() => setIsOpen(false)}
-            >
-              Home
-            </a>
-            <a 
               href="#about" 
               className="nav-link text-white font-medium"
               onClick={() => setIsOpen(false)}
@@ -75,11 +65,18 @@ export default function Navbar() {
               About
             </a>
             <a 
-              href="#expertise" 
+              href="#skills" 
               className="nav-link text-white font-medium"
               onClick={() => setIsOpen(false)}
             >
-              Expertise
+              Skills
+            </a>
+            <a 
+              href="#services" 
+              className="nav-link text-white font-medium"
+              onClick={() => setIsOpen(false)}
+            >
+              Services
             </a>
             <a 
               href="#projects" 
@@ -94,13 +91,6 @@ export default function Navbar() {
               onClick={() => setIsOpen(false)}
             >
               Contact
-            </a>
-            <a 
-              href="#contact" 
-              className="bg-gradient px-4 py-2 rounded-md font-semibold text-white text-center"
-              onClick={() => setIsOpen(false)}
-            >
-              Let's Build Together
             </a>
           </nav>
         </motion.div>

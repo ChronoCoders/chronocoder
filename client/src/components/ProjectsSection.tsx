@@ -1,32 +1,78 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { staggerContainer, fadeIn } from "@/lib/motion";
-import { ProjectCard } from "@/components/ui/project-card";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 
-const projects = [
+type ProjectCategory = "all" | "defi" | "banking" | "infrastructure";
+
+interface Project {
+  title: string;
+  description: string;
+  image: string;
+  tags: string[];
+  categories: ProjectCategory[];
+}
+
+const projects: Project[] = [
   {
-    title: "DeFi Lending Platform",
-    description: "A decentralized lending platform with algorithmic interest rates and liquidation protection mechanisms.",
+    title: "Bytus Cryptocurrency Banking",
+    description: "A comprehensive crypto banking platform integrating traditional banking services with cryptocurrency functionality, featuring secure wallets, fiat on/off ramps, and institutional-grade custody solutions.",
     image: "https://images.unsplash.com/photo-1639322537504-6427a16b0a28?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=500",
-    tags: ["Solidity", "React", "The Graph"],
-    link: "#"
+    tags: ["Banking", "Crypto", "KYC/AML", "Security"],
+    categories: ["banking"]
   },
   {
-    title: "NFT Marketplace",
-    description: "An NFT trading platform with royalty enforcement, fractional ownership, and on-chain governance.",
+    title: "Tetra Gold",
+    description: "A gold-backed stablecoin protocol with real-world asset tokenization, automated vault management, and decentralized governance for transparent precious metal trading.",
+    image: "https://images.unsplash.com/photo-1610375461246-83df859d849d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=500",
+    tags: ["DeFi", "Stablecoin", "Asset Tokenization"],
+    categories: ["defi"]
+  },
+  {
+    title: "StakeRise",
+    description: "An advanced staking protocol with dynamic yield optimization, cross-chain liquidity aggregation, and automated compounding strategies for maximized returns.",
     image: "https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=500",
-    tags: ["ERC-721", "Next.js", "IPFS"],
-    link: "#"
+    tags: ["Staking", "Yield", "Cross-chain"],
+    categories: ["defi"]
   },
   {
-    title: "Cross-Chain Yield Optimizer",
-    description: "An automated yield farming protocol that maximizes returns across multiple blockchains with risk-adjusted strategies.",
+    title: "Cross-Chain Bridge Protocol",
+    description: "A secure bridge infrastructure enabling seamless asset transfer across multiple blockchain networks with automated security monitoring and liquidity management.",
+    image: "https://images.unsplash.com/photo-1622630998477-20aa696ecb05?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=500",
+    tags: ["Bridge", "Security", "Multi-chain"],
+    categories: ["infrastructure"]
+  },
+  {
+    title: "DeFi Yield Aggregator",
+    description: "An intelligent yield farming protocol that automatically allocates assets across multiple DeFi platforms to maximize returns while minimizing risk and gas costs.",
     image: "https://images.unsplash.com/photo-1605792657660-596af9009e82?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=500",
-    tags: ["Multi-chain", "DeFi", "Automation"],
-    link: "#"
+    tags: ["DeFi", "Yield Farming", "Automation"],
+    categories: ["defi"]
+  },
+  {
+    title: "Blockchain Analytics Platform",
+    description: "A comprehensive analytics suite providing real-time insights into blockchain metrics, DeFi protocols, and market trends with advanced visualization tools.",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=500",
+    tags: ["Analytics", "Data", "Visualization"],
+    categories: ["infrastructure"]
   }
 ];
 
+const categories = [
+  { value: "all", label: "All Projects" },
+  { value: "defi", label: "DeFi" },
+  { value: "banking", label: "Banking" },
+  { value: "infrastructure", label: "Infrastructure" },
+];
+
 export default function ProjectsSection() {
+  const [activeCategory, setActiveCategory] = useState<ProjectCategory>("all");
+
+  const filteredProjects = projects.filter(
+    project => activeCategory === "all" || project.categories.includes(activeCategory)
+  );
+
   return (
     <section id="projects" className="py-20 bg-card overflow-hidden relative">
       <motion.div 
@@ -38,32 +84,76 @@ export default function ProjectsSection() {
       >
         <motion.h2 
           variants={fadeIn("up", "tween", 0.1, 1)}
-          className="text-3xl md:text-4xl font-bold mb-10 text-center"
+          className="text-3xl md:text-4xl font-bold mb-4 text-center"
+        >
+          My Work
+        </motion.h2>
+        <motion.p 
+          variants={fadeIn("up", "tween", 0.2, 1)}
+          className="text-gray-400 text-center max-w-2xl mx-auto mb-12"
         >
           Featured Projects
-        </motion.h2>
+        </motion.p>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-10">
-          {projects.map((project, index) => (
-            <ProjectCard
-              key={index}
-              project={project}
-              index={index}
-            />
-          ))}
-        </div>
+        <p className="text-gray-300 text-center max-w-3xl mx-auto mb-12">
+          Innovative blockchain solutions driving the future of finance and digital infrastructure.
+        </p>
         
         <motion.div 
-          variants={fadeIn("up", "tween", 0.5, 1)}
-          className="flex justify-center"
+          variants={fadeIn("up", "tween", 0.3, 1)}
+          className="flex flex-wrap justify-center gap-2 mb-12"
         >
-          <a 
-            href="#" 
-            className="inline-block border border-primary text-primary px-6 py-2 rounded-md hover:bg-primary/10 transition-colors duration-200"
-          >
-            View All Projects
-          </a>
+          {categories.map((category) => (
+            <button
+              key={category.value}
+              className={`py-2 px-4 rounded-full text-sm font-medium transition-colors duration-200 ${
+                activeCategory === category.value
+                  ? "bg-primary text-white"
+                  : "bg-background text-gray-400 hover:text-white"
+              }`}
+              onClick={() => setActiveCategory(category.value as ProjectCategory)}
+            >
+              {category.label}
+            </button>
+          ))}
         </motion.div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+          {filteredProjects.map((project, index) => (
+            <motion.div
+              key={project.title}
+              variants={fadeIn("up", "spring", index * 0.1, 0.75)}
+              whileHover={{ y: -10 }}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
+              <Card className="bg-background rounded-xl overflow-hidden shadow-xl h-full border-gray-800 hover:border-primary/50 transition-colors duration-300">
+                <div className="h-48 overflow-hidden">
+                  <img 
+                    src={project.image} 
+                    alt={project.title} 
+                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-105" 
+                  />
+                </div>
+                
+                <CardContent className="p-6">
+                  <h3 className="text-xl font-semibold mb-2 text-white">{project.title}</h3>
+                  <p className="text-gray-400 mb-4 text-sm min-h-[80px]">{project.description}</p>
+                  
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {project.tags.map((tag, tagIndex) => (
+                      <span 
+                        key={tagIndex} 
+                        className="py-1 px-3 bg-card rounded-full text-xs text-primary"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
+          ))}
+        </div>
       </motion.div>
     </section>
   );

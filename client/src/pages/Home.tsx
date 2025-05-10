@@ -2,10 +2,9 @@ import { useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
-import ExpertiseSection from "@/components/ExpertiseSection";
+import SkillsSection from "@/components/SkillsSection";
+import ServicesSection from "@/components/ServicesSection";
 import ProjectsSection from "@/components/ProjectsSection";
-import InteractiveBlockchainSection from "@/components/InteractiveBlockchainSection";
-import TestimonialsSection from "@/components/TestimonialsSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 
@@ -50,10 +49,9 @@ export default function Home() {
       <main>
         <HeroSection />
         <AboutSection />
-        <ExpertiseSection />
+        <SkillsSection />
+        <ServicesSection />
         <ProjectsSection />
-        <InteractiveBlockchainSection />
-        <TestimonialsSection />
         <ContactSection />
       </main>
       <Footer />
