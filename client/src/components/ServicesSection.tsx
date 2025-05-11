@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { staggerContainer, fadeIn } from "@/lib/motion";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent } from "@/components/ui/card";
-import { Code, Smartphone, Palette, BarChart4 } from "lucide-react";
+import { Code, Smartphone, Palette, Blocks } from "lucide-react";
 
 const services = [
   {
@@ -71,23 +71,25 @@ const services = [
     ]
   },
   {
-    id: "consulting",
-    title: "Blockchain Consultancy",
-    description: "Strategic consulting for blockchain implementation, tokenomics, and DeFi protocol design.",
-    icon: BarChart4,
+    id: "blockchain",
+    title: "Blockchain Development",
+    description: "Specialized blockchain engineering services focusing on smart contracts, protocol development, and decentralized architecture.",
+    icon: Blocks,
     features: [
-      "Technical Architecture",
+      "Smart Contract Development",
+      "DeFi Protocol Engineering",
+      "Tokenization Solutions",
+      "Blockchain Integration",
       "Security Auditing",
-      "Tokenomics Design",
-      "Protocol Optimization",
-      "Market Analysis",
-      "Regulatory Compliance",
+      "Gas Optimization",
     ],
     technologies: [
-      "DeFi Protocols",
-      "Token Standards",
-      "Consensus Mechanisms",
-      "Layer 2 Solutions",
+      "Solidity",
+      "Rust",
+      "EVM Chains",
+      "IPFS",
+      "Chainlink",
+      "OpenZeppelin",
     ]
   }
 ];
