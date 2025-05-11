@@ -23,7 +23,7 @@ export default function Navbar() {
   return (
     <header className={navClasses}>
       <div className="container mx-auto px-4 flex items-center justify-between">
-        <a href="#home" className="flex items-center text-2xl font-bold tracking-tight text-white">
+        <a href="#home" className="flex items-center text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
           <div className="flex flex-col leading-none mr-1">
             <span>Chrono</span>
             <span>Coder</span>
@@ -32,7 +32,7 @@ export default function Navbar() {
 
         {/* Mobile menu button */}
         <button 
-          className="lg:hidden p-2 text-white focus:outline-none" 
+          className="lg:hidden p-2 text-gray-900 dark:text-white focus:outline-none" 
           onClick={() => setIsOpen(!isOpen)}
           aria-label="Toggle menu"
         >
@@ -60,44 +60,44 @@ export default function Navbar() {
           transition={{ duration: 0.3 }}
           className="lg:hidden glass-card p-4"
         >
-          <nav className="flex flex-col space-y-4">
+          <nav className="flex flex-col space-y-4 navbar-light-text">
             <a 
               href="#about" 
-              className="nav-link text-white font-medium"
+              className="nav-link font-medium"
               onClick={() => setIsOpen(false)}
             >
               About
             </a>
             <a 
               href="#skills" 
-              className="nav-link text-white font-medium"
+              className="nav-link font-medium"
               onClick={() => setIsOpen(false)}
             >
               Skills
             </a>
             <a 
               href="#services" 
-              className="nav-link text-white font-medium"
+              className="nav-link font-medium"
               onClick={() => setIsOpen(false)}
             >
               Services
             </a>
             <a 
               href="#projects" 
-              className="nav-link text-white font-medium"
+              className="nav-link font-medium"
               onClick={() => setIsOpen(false)}
             >
               Projects
             </a>
             <a 
               href="#contact" 
-              className="nav-link text-white font-medium"
+              className="nav-link font-medium"
               onClick={() => setIsOpen(false)}
             >
               Contact
             </a>
             <div className="flex items-center mt-2">
-              <span className="text-white font-medium mr-2">Theme:</span>
+              <span className="text-gray-900 dark:text-white font-medium mr-2">Theme:</span>
               <ThemeToggle />
             </div>
           </nav>
