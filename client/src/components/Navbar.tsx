@@ -40,12 +40,12 @@ export default function Navbar() {
         </button>
 
         {/* Desktop menu */}
-        <nav className="hidden lg:flex items-center space-x-4">
-          <a href="#about" className="nav-link text-white hover:text-primary-light font-medium transition-colors duration-200">About</a>
-          <a href="#skills" className="nav-link text-white hover:text-primary-light font-medium transition-colors duration-200">Skills</a>
-          <a href="#services" className="nav-link text-white hover:text-primary-light font-medium transition-colors duration-200">Services</a>
-          <a href="#projects" className="nav-link text-white hover:text-primary-light font-medium transition-colors duration-200">Projects</a>
-          <a href="#contact" className="nav-link text-white hover:text-primary-light font-medium transition-colors duration-200">Contact</a>
+        <nav className="hidden lg:flex items-center space-x-4 navbar-light-text">
+          <a href="#about" className="nav-link font-medium transition-colors duration-200">About</a>
+          <a href="#skills" className="nav-link font-medium transition-colors duration-200">Skills</a>
+          <a href="#services" className="nav-link font-medium transition-colors duration-200">Services</a>
+          <a href="#projects" className="nav-link font-medium transition-colors duration-200">Projects</a>
+          <a href="#contact" className="nav-link font-medium transition-colors duration-200">Contact</a>
           <div className="ml-2">
             <ThemeToggle />
           </div>
