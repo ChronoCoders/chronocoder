@@ -279,15 +279,14 @@ export function SkillRadar({ activeCategory, onHoverSkill }: SkillRadarProps) {
     return null;
   };
 
-  // Define theme-specific chart styling
-  // Light mode and dark mode specific colors
-  const primaryColor = "#6366f1"; // Consistent across themes
-  const gridStrokeColor = isDarkMode ? "rgba(255, 255, 255, 0.15)" : "rgba(0, 0, 0, 0.25)";
-  const fillOpacity = isDarkMode ? 0.6 : 0.25;
-  const tickColor = isDarkMode ? "#f1f5f9" : "#334155"; // text color
+  // Define theme-specific chart styling with stronger contrast for light mode
+  const primaryColor = "#4f46e5"; // Stronger primary color
+  const gridStrokeColor = isDarkMode ? "rgba(255, 255, 255, 0.25)" : "rgba(0, 0, 0, 0.35)";
+  const fillOpacity = isDarkMode ? 0.6 : 0.2;
+  const tickColor = isDarkMode ? "#f1f5f9" : "#1e293b"; // Much darker text for light mode
 
   return (
-    <div className="relative w-full h-[400px]">
+    <div className="relative w-full h-[400px] p-4 bg-white dark:bg-transparent rounded-lg">
       <ResponsiveContainer width="100%" height="100%">
         <RadarChart 
           cx="50%" 
@@ -302,14 +301,15 @@ export function SkillRadar({ activeCategory, onHoverSkill }: SkillRadarProps) {
           <PolarGrid 
             gridType="circle" 
             stroke={gridStrokeColor}
+            strokeWidth={1.5}
             radialLines={false}
           />
           
           {/* Labels around the chart */}
           <PolarAngleAxis 
             dataKey={nameKey} 
-            tick={{ fill: tickColor, fontSize: 12, fontWeight: 500 }}
-            axisLine={{ stroke: gridStrokeColor, strokeWidth: 1 }}
+            tick={{ fill: tickColor, fontSize: 13, fontWeight: 600 }}
+            axisLine={{ stroke: gridStrokeColor, strokeWidth: 2 }}
             tickLine={false}
           />
           
@@ -317,8 +317,12 @@ export function SkillRadar({ activeCategory, onHoverSkill }: SkillRadarProps) {
           <PolarRadiusAxis 
             angle={30} 
             domain={[0, 100]} 
-            tick={{ fill: tickColor, fontSize: 10 }}
-            tickCount={4}
+            tick={{ 
+              fill: tickColor, 
+              fontSize: 11,
+              fontWeight: 'bold'
+            }}
+            tickCount={3}
             stroke={gridStrokeColor}
             axisLine={false}
           />
@@ -330,12 +334,13 @@ export function SkillRadar({ activeCategory, onHoverSkill }: SkillRadarProps) {
             stroke={primaryColor} 
             fill={primaryColor} 
             fillOpacity={fillOpacity}
-            strokeWidth={2}
+            strokeWidth={3}
             activeDot={{ 
-              r: 6, 
-              stroke: isDarkMode ? "#a78bfa" : "#6366f1", 
+              r: 8, 
+              stroke: isDarkMode ? "#a78bfa" : "#4338ca", 
               fill: "white", 
-              strokeWidth: 2 
+              strokeWidth: 3,
+              strokeDasharray: ''
             }} 
           />
           
