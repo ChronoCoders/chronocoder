@@ -60,6 +60,12 @@
 @layer components {
   .gradient-text {
     @apply bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    /* Adding specific rendering handling for webkit browsers */
+    -webkit-font-smoothing: antialiased;
+    backface-visibility: hidden;
   }
 
   .bg-gradient {

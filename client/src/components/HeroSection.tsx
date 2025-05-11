@@ -49,7 +49,7 @@ export default function HeroSection() {
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 md:mb-4 leading-tight"
           >
             <span className="block">Blockchain Solutions Architect</span>
-            <span className="gradient-text block mt-1">Building the Decentralized Future</span>
+            <span className="gradient-text block mt-1" style={{display: 'block', width: 'fit-content', margin: '0 auto'}}>Building the Decentralized Future</span>
           </motion.h1>
           
           <motion.p 

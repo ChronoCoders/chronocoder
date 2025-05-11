@@ -128,10 +128,22 @@ export function ChronoCoderLogo({ size = "md", showText = true }: ChronoCoderLog
           transition={{ duration: 0.5 }}
         >
           <div className="flex flex-col">
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#5E5AFF] via-[#8A4FFF] to-[#E94BFF]">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#5E5AFF] via-[#8A4FFF] to-[#E94BFF]" style={{
+              WebkitTextFillColor: 'transparent',
+              WebkitBackgroundClip: 'text',
+              backgroundClip: 'text',
+              WebkitFontSmoothing: 'antialiased',
+              display: 'block'
+            }}>
               Chrono
             </span>
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#5E5AFF] via-[#8A4FFF] to-[#E94BFF]">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#5E5AFF] via-[#8A4FFF] to-[#E94BFF]" style={{
+              WebkitTextFillColor: 'transparent',
+              WebkitBackgroundClip: 'text',
+              backgroundClip: 'text',
+              WebkitFontSmoothing: 'antialiased',
+              display: 'block'
+            }}>
               Coder
             </span>
           </div>
