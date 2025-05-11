@@ -47,53 +47,53 @@ export default function Navbar() {
       </div>
 
       {/* Mobile menu */}
-      {isOpen && (
-        <motion.div 
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.3 }}
-          className="lg:hidden glass-card p-4"
-        >
-          <nav className="flex flex-col space-y-4 navbar-light-text">
-            <a 
-              href="#about" 
-              className="nav-link font-medium"
-              onClick={() => setIsOpen(false)}
-            >
-              About
-            </a>
-            <a 
-              href="#skills" 
-              className="nav-link font-medium"
-              onClick={() => setIsOpen(false)}
-            >
-              Skills
-            </a>
-            <a 
-              href="#services" 
-              className="nav-link font-medium"
-              onClick={() => setIsOpen(false)}
-            >
-              Services
-            </a>
-            <a 
-              href="#projects" 
-              className="nav-link font-medium"
-              onClick={() => setIsOpen(false)}
-            >
-              Projects
-            </a>
-            <a 
-              href="#contact" 
-              className="nav-link font-medium"
-              onClick={() => setIsOpen(false)}
-            >
-              Contact
-            </a>
-
-          </nav>
-        </motion.div>
-      )}
+      <motion.div 
+        initial={{ opacity: 0, height: 0 }}
+        animate={{ 
+          opacity: isOpen ? 1 : 0,
+          height: isOpen ? "auto" : 0
+        }}
+        transition={{ duration: 0.3 }}
+        className={`lg:hidden glass-card overflow-hidden`}
+      >
+        <nav className="flex flex-col space-y-3 p-4 navbar-light-text">
+          <a 
+            href="#about" 
+            className="nav-link font-medium text-base flex items-center justify-center py-2 hover:bg-primary/10 rounded-md transition-colors"
+            onClick={() => setIsOpen(false)}
+          >
+            About
+          </a>
+          <a 
+            href="#skills" 
+            className="nav-link font-medium text-base flex items-center justify-center py-2 hover:bg-primary/10 rounded-md transition-colors"
+            onClick={() => setIsOpen(false)}
+          >
+            Skills
+          </a>
+          <a 
+            href="#services" 
+            className="nav-link font-medium text-base flex items-center justify-center py-2 hover:bg-primary/10 rounded-md transition-colors"
+            onClick={() => setIsOpen(false)}
+          >
+            Services
+          </a>
+          <a 
+            href="#projects" 
+            className="nav-link font-medium text-base flex items-center justify-center py-2 hover:bg-primary/10 rounded-md transition-colors"
+            onClick={() => setIsOpen(false)}
+          >
+            Projects
+          </a>
+          <a 
+            href="#contact" 
+            className="nav-link font-medium text-base flex items-center justify-center py-2 hover:bg-primary/10 rounded-md transition-colors"
+            onClick={() => setIsOpen(false)}
+          >
+            Contact
+          </a>
+        </nav>
+      </motion.div>
     </header>
   );
 }

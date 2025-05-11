@@ -74,39 +74,39 @@ export default function ProjectsSection() {
   );
 
   return (
-    <section id="projects" className="py-20 bg-card overflow-hidden relative">
+    <section id="projects" className="py-12 sm:py-16 md:py-20 bg-card overflow-hidden relative">
       <motion.div 
         variants={staggerContainer}
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, amount: 0.1 }}
-        className="container mx-auto px-4"
+        className="container mx-auto px-4 sm:px-6"
       >
         <motion.h2 
           variants={fadeIn("up", "tween", 0.1, 1)}
-          className="text-3xl md:text-4xl font-bold mb-4 text-center"
+          className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2 sm:mb-3 md:mb-4 text-center"
         >
           My Work
         </motion.h2>
         <motion.p 
           variants={fadeIn("up", "tween", 0.2, 1)}
-          className="text-gray-400 text-center max-w-2xl mx-auto mb-12"
+          className="text-gray-400 text-center max-w-2xl mx-auto mb-6 sm:mb-8 md:mb-12 text-sm sm:text-base"
         >
           Featured Projects
         </motion.p>
         
-        <p className="text-gray-300 text-center max-w-3xl mx-auto mb-12">
+        <p className="text-gray-300 text-center max-w-3xl mx-auto mb-6 sm:mb-8 md:mb-12 text-sm sm:text-base px-2">
           Innovative blockchain solutions driving the future of finance and digital infrastructure.
         </p>
         
         <motion.div 
           variants={fadeIn("up", "tween", 0.3, 1)}
-          className="flex flex-wrap justify-center gap-2 mb-12"
+          className="flex flex-wrap justify-center gap-1 sm:gap-2 mb-8 md:mb-12"
         >
           {categories.map((category) => (
             <button
               key={category.value}
-              className={`py-2 px-4 rounded-full text-sm font-medium transition-colors duration-200 ${
+              className={`py-1.5 sm:py-2 px-3 sm:px-4 rounded-full text-xs sm:text-sm font-medium transition-colors duration-200 ${
                 activeCategory === category.value
                   ? "bg-primary text-white"
                   : "bg-background text-gray-400 hover:text-white"
@@ -118,16 +118,16 @@ export default function ProjectsSection() {
           ))}
         </motion.div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 mb-8 sm:mb-10 md:mb-12">
           {filteredProjects.map((project, index) => (
             <motion.div
               key={project.title}
               variants={fadeIn("up", "spring", index * 0.1, 0.75)}
-              whileHover={{ y: -10 }}
+              whileHover={{ y: -5, scale: 1.01 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
               <Card className="bg-background rounded-xl overflow-hidden shadow-xl h-full border-gray-800 hover:border-primary/50 transition-colors duration-300">
-                <div className="h-48 overflow-hidden">
+                <div className="h-36 sm:h-40 md:h-48 overflow-hidden">
                   <img 
                     src={project.image} 
                     alt={project.title} 
@@ -135,15 +135,15 @@ export default function ProjectsSection() {
                   />
                 </div>
                 
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-semibold mb-2 text-white">{project.title}</h3>
-                  <p className="text-gray-400 mb-4 text-sm min-h-[80px]">{project.description}</p>
+                <CardContent className="p-4 sm:p-5 md:p-6">
+                  <h3 className="text-lg sm:text-xl font-semibold mb-2 text-white">{project.title}</h3>
+                  <p className="text-gray-400 mb-3 md:mb-4 text-xs sm:text-sm min-h-[4rem] sm:min-h-[5rem] md:min-h-[80px] line-clamp-3 sm:line-clamp-4">{project.description}</p>
                   
-                  <div className="flex flex-wrap gap-2 mb-4">
+                  <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-2 sm:mb-3 md:mb-4">
                     {project.tags.map((tag, tagIndex) => (
                       <span 
                         key={tagIndex} 
-                        className="py-1 px-3 bg-card rounded-full text-xs text-primary"
+                        className="py-0.5 sm:py-1 px-2 sm:px-3 bg-card rounded-full text-[10px] sm:text-xs text-primary"
                       >
                         {tag}
                       </span>
