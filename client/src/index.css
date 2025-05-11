@@ -102,45 +102,51 @@
   }
 
   .glass-card {
-    @apply bg-card/70 backdrop-blur-md;
+    @apply backdrop-blur-md;
+    @apply bg-white/70 border border-gray-200 dark:bg-card/70 dark:border-transparent;
   }
   
   /* Code animation styles */
   .code-block {
-    @apply font-mono text-[#4A88F0] bg-[#111A33] rounded-xl p-6 overflow-hidden;
+    @apply font-mono rounded-xl p-6 overflow-hidden;
+    @apply text-[#3060B0] bg-gray-100 border border-gray-200; 
+    @apply dark:text-[#4A88F0] dark:bg-[#111A33] dark:border-transparent;
   }
   
   .code-block .token-keyword {
-    @apply text-[#547AFF];
+    @apply text-[#1d4ed8] dark:text-[#547AFF];
   }
   
   .code-block .token-function {
-    @apply text-[#81C4FF];
+    @apply text-[#0369a1] dark:text-[#81C4FF];
   }
   
   .code-block .token-comment {
-    @apply text-[#7B8FC2];
+    @apply text-[#475569] dark:text-[#7B8FC2];
   }
   
   .code-block .token-bracket {
-    @apply text-[#A6B8FF];
+    @apply text-[#6366f1] dark:text-[#A6B8FF];
   }
   
   /* Modern tab design */
   .modern-tabs {
-    @apply relative z-10 shadow-lg bg-[#0F1729] rounded-lg;
+    @apply relative z-10 shadow-lg rounded-lg;
+    @apply bg-gray-100 dark:bg-[#0F1729];
   }
   
   .modern-tab-trigger {
-    @apply relative transition-all duration-200 flex items-center justify-center text-gray-400;
+    @apply relative transition-all duration-200 flex items-center justify-center;
+    @apply text-gray-600 dark:text-gray-400;
   }
   
   .modern-tab-trigger:hover:not([data-state="active"]) {
-    @apply text-gray-300 bg-gray-800/20;
+    @apply text-gray-700 bg-gray-200/50 dark:text-gray-300 dark:bg-gray-800/20;
   }
   
   .modern-tab-trigger[data-state="active"] {
-    @apply text-primary relative bg-[#111A33] font-medium;
+    @apply text-primary relative font-medium;
+    @apply bg-white dark:bg-[#111A33];
   }
   
   .modern-tab-trigger[data-state="active"]::after {
@@ -153,7 +159,7 @@
   }
   
   .modern-tab-trigger:not([data-state="active"]) svg {
-    @apply text-gray-400;
+    @apply text-gray-500 dark:text-gray-400;
   }
 
   .skill-bar {
