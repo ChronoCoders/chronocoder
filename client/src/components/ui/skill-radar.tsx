@@ -179,7 +179,7 @@ const SkillDetailCard = ({ skill, isVisible }: SkillDetailCardProps) => {
   
   return (
     <motion.div 
-      className="absolute top-0 right-4 w-72 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg p-5 z-10 overflow-hidden"
+      className="absolute top-0 right-4 w-72 bg-white border border-gray-200 rounded-lg shadow-lg p-5 z-10 overflow-hidden"
       initial={{ opacity: 0, height: 0 }}
       animate={{ 
         opacity: isVisible ? 1 : 0,
@@ -187,25 +187,25 @@ const SkillDetailCard = ({ skill, isVisible }: SkillDetailCardProps) => {
       }}
       transition={{ duration: 0.3 }}
     >
-      <h3 className="text-lg font-semibold text-gray-900 dark:text-white">{skill.name}</h3>
+      <h3 className="text-lg font-semibold text-gray-900">{skill.name}</h3>
       <div className="flex items-center my-2">
-        <div className="flex-1 h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+        <div className="flex-1 h-2 bg-gray-200 rounded-full overflow-hidden">
           <div 
-            className="h-full bg-indigo-600 dark:bg-indigo-500 rounded-full" 
+            className="h-full bg-indigo-600 rounded-full" 
             style={{ width: `${skill.value}%` }}
           ></div>
         </div>
-        <span className="ml-3 text-gray-700 dark:text-gray-300 font-medium">{skill.value}%</span>
+        <span className="ml-3 text-gray-700 font-medium">{skill.value}%</span>
       </div>
-      <p className="text-sm text-gray-600 dark:text-gray-300 mt-3 leading-relaxed">{skill.description}</p>
+      <p className="text-sm text-gray-600 mt-3 leading-relaxed">{skill.description}</p>
       <div className="mt-4 text-sm">
-        <p className="text-gray-800 dark:text-gray-200">
+        <p className="text-gray-800">
           <span className="font-medium">Experience:</span> {yearsExperience} years
         </p>
-        <p className="text-gray-800 dark:text-gray-200 mt-2">
+        <p className="text-gray-800 mt-2">
           <span className="font-medium">Related projects:</span>
         </p>
-        <ul className="list-disc list-inside text-gray-600 dark:text-gray-300 text-xs mt-1 space-y-1">
+        <ul className="list-disc list-inside text-gray-600 text-xs mt-1 space-y-1">
           {skill.relatedProjects.map((project, index) => (
             <li key={index}>{project}</li>
           ))}
@@ -222,27 +222,6 @@ interface SkillRadarProps {
 
 export function SkillRadar({ activeCategory, onHoverSkill }: SkillRadarProps) {
   const [hoveredSkill, setHoveredSkill] = useState<SkillDetail | null>(null);
-  const [isDarkMode, setIsDarkMode] = useState(false);
-  
-  // Check the current theme and update when it changes
-  useEffect(() => {
-    // Initial theme check
-    const checkTheme = () => {
-      const isDark = document.documentElement.classList.contains('dark');
-      setIsDarkMode(isDark);
-    };
-    
-    checkTheme();
-    
-    // Watch for theme changes
-    const observer = new MutationObserver(checkTheme);
-    observer.observe(document.documentElement, { 
-      attributes: true, 
-      attributeFilter: ['class'] 
-    });
-    
-    return () => observer.disconnect();
-  }, []);
   
   const handleRadarMouseEnter = (data: any) => {
     if (data && data.payload && data.payload.detail) {
@@ -265,53 +244,34 @@ export function SkillRadar({ activeCategory, onHoverSkill }: SkillRadarProps) {
   const dataKey = activeCategory === "all" ? "value" : "A";
   const nameKey = activeCategory === "all" ? "category" : "subject";
 
-  // Custom tooltip component with improved styling
+  // Custom tooltip component
   const CustomTooltip = ({ active, payload }: any) => {
     if (active && payload && payload.length) {
       const data = payload[0].payload;
       return (
-        <div className="bg-white/90 dark:bg-gray-800/90 backdrop-blur p-3 border border-gray-200 dark:border-gray-700 rounded-md shadow-lg">
-          <p className="font-semibold text-gray-900 dark:text-white">{data[nameKey]}</p>
-          <p className="text-indigo-600 dark:text-indigo-400 font-medium">{`${data[dataKey]}% Proficiency`}</p>
+        <div className="bg-white backdrop-blur p-3 border border-gray-200 rounded-md shadow-lg">
+          <p className="font-semibold text-gray-900">{data[nameKey]}</p>
+          <p className="text-indigo-600 font-medium">{`${data[dataKey]}% Proficiency`}</p>
         </div>
       );
     }
     return null;
   };
 
-  // Theme-specific configuration for both light and dark modes
-  const theme = {
-    light: {
-      primaryColor: "#4f46e5", // Indigo-600
-      gridColor: "rgba(0, 0, 0, 0.3)",
-      fillOpacity: 0.15,
-      textColor: "#1e293b", // Slate-800
-      backgroundColor: "white",
-      borderColor: "#e5e7eb", // Gray-200
-    },
-    dark: {
-      primaryColor: "#6366f1", // Indigo-500
-      gridColor: "rgba(255, 255, 255, 0.2)",
-      fillOpacity: 0.5,
-      textColor: "#f1f5f9", // Slate-100
-      backgroundColor: "transparent",
-      borderColor: "#374151", // Gray-700
-    }
+  // Chart configuration for a single theme
+  const chartConfig = {
+    primaryColor: "#4f46e5", // Indigo-600
+    gridColor: "rgba(0, 0, 0, 0.3)",
+    fillOpacity: 0.15,
+    textColor: "#1e293b", // Slate-800
+    backgroundColor: "white",
+    borderColor: "#e5e7eb", // Gray-200
   };
-  
-  // Get current theme based on dark mode state
-  const currentTheme = isDarkMode ? theme.dark : theme.light;
 
   return (
     <div className="relative w-full h-[400px]">
-      {/* Container with theme-specific styling */}
-      <div 
-        className={`w-full h-full rounded-xl p-4 ${
-          isDarkMode 
-            ? "bg-gray-900/30 border border-gray-800" 
-            : "bg-white border border-gray-100 shadow-sm"
-        }`}
-      >
+      {/* Chart container */}
+      <div className="w-full h-full rounded-xl p-4 bg-white border border-gray-100 shadow-sm">
         <ResponsiveContainer width="100%" height="100%">
           <RadarChart 
             cx="50%" 
@@ -325,7 +285,7 @@ export function SkillRadar({ activeCategory, onHoverSkill }: SkillRadarProps) {
             {/* Circular grid lines */}
             <PolarGrid 
               gridType="circle" 
-              stroke={currentTheme.gridColor}
+              stroke={chartConfig.gridColor}
               strokeWidth={1.5}
               radialLines={false}
             />
@@ -334,12 +294,12 @@ export function SkillRadar({ activeCategory, onHoverSkill }: SkillRadarProps) {
             <PolarAngleAxis 
               dataKey={nameKey} 
               tick={{ 
-                fill: currentTheme.textColor, 
+                fill: chartConfig.textColor, 
                 fontSize: 13, 
                 fontWeight: 600 
               }}
               axisLine={{ 
-                stroke: currentTheme.gridColor, 
+                stroke: chartConfig.gridColor, 
                 strokeWidth: 2 
               }}
               tickLine={false}
@@ -350,12 +310,12 @@ export function SkillRadar({ activeCategory, onHoverSkill }: SkillRadarProps) {
               angle={30} 
               domain={[0, 100]} 
               tick={{ 
-                fill: currentTheme.textColor, 
+                fill: chartConfig.textColor, 
                 fontSize: 11,
                 fontWeight: 'bold'
               }}
               tickCount={4}
-              stroke={currentTheme.gridColor}
+              stroke={chartConfig.gridColor}
               axisLine={false}
             />
             
@@ -363,13 +323,13 @@ export function SkillRadar({ activeCategory, onHoverSkill }: SkillRadarProps) {
             <Radar 
               name="Proficiency" 
               dataKey={dataKey} 
-              stroke={currentTheme.primaryColor} 
-              fill={currentTheme.primaryColor} 
-              fillOpacity={currentTheme.fillOpacity}
+              stroke={chartConfig.primaryColor} 
+              fill={chartConfig.primaryColor} 
+              fillOpacity={chartConfig.fillOpacity}
               strokeWidth={3}
               activeDot={{ 
                 r: 8, 
-                stroke: currentTheme.primaryColor, 
+                stroke: chartConfig.primaryColor, 
                 fill: "white", 
                 strokeWidth: 3
               }} 
@@ -381,7 +341,7 @@ export function SkillRadar({ activeCategory, onHoverSkill }: SkillRadarProps) {
             {/* Legend below the chart */}
             <Legend 
               formatter={(value) => (
-                <span className="text-gray-900 dark:text-white font-medium">{value}</span>
+                <span className="text-gray-900 font-medium">{value}</span>
               )} 
               iconSize={10}
               wrapperStyle={{ 
