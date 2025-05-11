@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
-import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { motion } from "framer-motion";
 
 export default function Navbar() {
@@ -46,9 +45,6 @@ export default function Navbar() {
           <a href="#services" className="nav-link font-medium transition-colors duration-200">Services</a>
           <a href="#projects" className="nav-link font-medium transition-colors duration-200">Projects</a>
           <a href="#contact" className="nav-link font-medium transition-colors duration-200">Contact</a>
-          <div className="ml-2">
-            <ThemeToggle />
-          </div>
         </nav>
       </div>
 
@@ -96,10 +92,7 @@ export default function Navbar() {
             >
               Contact
             </a>
-            <div className="flex items-center mt-2">
-              <span className="text-gray-900 dark:text-white font-medium mr-2">Theme:</span>
-              <ThemeToggle />
-            </div>
+
           </nav>
         </motion.div>
       )}
