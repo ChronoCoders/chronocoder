@@ -52,7 +52,8 @@ export default function Footer() {
               <li><a href="#services" className="text-gray-400 hover:text-primary transition-colors">Web Development</a></li>
               <li><a href="#services" className="text-gray-400 hover:text-primary transition-colors">Mobile Development</a></li>
               <li><a href="#services" className="text-gray-400 hover:text-primary transition-colors">UI/UX Design</a></li>
-              <li><a href="#services" className="text-gray-400 hover:text-primary transition-colors">Consultancy</a></li>
+              <li><a href="#services" className="text-gray-400 hover:text-primary transition-colors">Blockchain Development</a></li>
+              <li><a href="#services" className="text-gray-400 hover:text-primary transition-colors">AI Development</a></li>
             </ul>
           </motion.div>
           
@@ -89,9 +90,9 @@ export default function Footer() {
             viewport={{ once: true }}
             className="flex space-x-4 mt-4 md:mt-0"
           >
-            <a href="#" className="text-gray-400 hover:text-primary transition-colors text-sm">Privacy Policy</a>
-            <a href="#" className="text-gray-400 hover:text-primary transition-colors text-sm">Terms of Service</a>
-            <a href="#" className="text-gray-400 hover:text-primary transition-colors text-sm">Cookies Policy</a>
+            <a href="/privacy-policy" className="text-gray-400 hover:text-primary transition-colors text-sm">Privacy Policy</a>
+            <a href="/terms-of-service" className="text-gray-400 hover:text-primary transition-colors text-sm">Terms of Service</a>
+            <a href="/cookies-policy" className="text-gray-400 hover:text-primary transition-colors text-sm">Cookies Policy</a>
           </motion.div>
         </div>
       </div>
