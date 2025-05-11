@@ -341,7 +341,7 @@ export function SkillRadar({ activeCategory, onHoverSkill }: SkillRadarProps) {
             {/* Legend below the chart */}
             <Legend 
               formatter={(value) => (
-                <span className="text-gray-900 font-medium">{value}</span>
+                <span className="text-gray-200 font-medium">{value}</span>
               )} 
               iconSize={10}
               wrapperStyle={{ 

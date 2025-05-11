@@ -60,7 +60,7 @@ export default function SkillsSection() {
   );
 
   return (
-    <section id="skills" className="py-20 bg-gray-50 overflow-hidden relative">
+    <section id="skills" className="py-20 bg-background overflow-hidden relative">
       <motion.div 
         variants={staggerContainer}
         initial="hidden"
@@ -70,13 +70,13 @@ export default function SkillsSection() {
       >
         <motion.h2 
           variants={fadeIn("up", "tween", 0.1, 1)}
-          className="text-3xl md:text-4xl font-bold mb-4 text-center text-gray-900"
+          className="text-3xl md:text-4xl font-bold mb-4 text-center text-foreground"
         >
           My Skills
         </motion.h2>
         <motion.p 
           variants={fadeIn("up", "tween", 0.2, 1)}
-          className="text-gray-500 text-center max-w-2xl mx-auto mb-6"
+          className="text-muted-foreground text-center max-w-2xl mx-auto mb-6"
         >
           Comprehensive knowledge in blockchain development, DeFi protocols, and Web3 infrastructure.
         </motion.p>
@@ -89,7 +89,7 @@ export default function SkillsSection() {
             className={`py-2 px-4 rounded text-sm font-medium transition-colors duration-200 flex items-center gap-2 ${
               viewMode === "radar"
                 ? "bg-primary text-white"
-                : "bg-gray-100 text-gray-600 hover:text-gray-900"
+                : "bg-[#1e293b] text-gray-300 hover:text-gray-100"
             }`}
             onClick={() => setViewMode("radar")}
           >
@@ -104,7 +104,7 @@ export default function SkillsSection() {
             className={`py-2 px-4 rounded text-sm font-medium transition-colors duration-200 flex items-center gap-2 ${
               viewMode === "bars"
                 ? "bg-primary text-white"
-                : "bg-gray-100 text-gray-600 hover:text-gray-900"
+                : "bg-[#1e293b] text-gray-300 hover:text-gray-100"
             }`}
             onClick={() => setViewMode("bars")}
           >
@@ -126,7 +126,7 @@ export default function SkillsSection() {
               className={`py-2 px-4 rounded-full text-sm font-medium transition-colors duration-200 ${
                 activeCategory === category.value
                   ? "bg-primary text-white"
-                  : "bg-gray-100 text-gray-600 hover:text-gray-900"
+                  : "bg-[#1e293b] text-gray-300 hover:text-gray-100"
               }`}
               onClick={() => setActiveCategory(category.value as SkillCategory)}
             >
@@ -140,7 +140,7 @@ export default function SkillsSection() {
             variants={fadeIn("up", "tween", 0.4, 1)}
             className="mt-8 relative"
           >
-            <div className="absolute top-0 right-0 flex items-center gap-2 text-gray-600 text-sm bg-white/70 backdrop-blur-sm px-3 py-1 rounded-md border border-gray-100">
+            <div className="absolute top-0 right-0 flex items-center gap-2 text-gray-300 text-sm bg-[#111A33]/70 backdrop-blur-sm px-3 py-1 rounded-md border border-border">
               <Info size={16} className="text-primary" />
               <span>Hover over the radar chart to see detailed information</span>
             </div>
