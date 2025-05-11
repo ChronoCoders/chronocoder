@@ -4,7 +4,7 @@ import { staggerContainer, fadeIn } from "@/lib/motion";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Github, Linkedin, Twitter, Mail, Phone } from "lucide-react";
+import { Github, Mail, Phone } from "lucide-react";
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({
@@ -99,26 +99,14 @@ export default function ContactSection() {
                 </div>
               </div>
               
-              <h4 className="text-lg font-medium mb-4 text-white">Follow Me</h4>
+              <h4 className="text-lg font-medium mb-4 text-white">Find Me On GitHub</h4>
               <div className="flex space-x-4">
                 <a 
-                  href="#" 
-                  className="w-10 h-10 rounded-full bg-background/50 flex items-center justify-center text-white hover:bg-primary/20 transition-colors duration-200 border border-gray-800"
-                  aria-label="Twitter"
-                >
-                  <Twitter className="h-5 w-5" />
-                </a>
-                <a 
-                  href="#" 
-                  className="w-10 h-10 rounded-full bg-background/50 flex items-center justify-center text-white hover:bg-primary/20 transition-colors duration-200 border border-gray-800"
-                  aria-label="LinkedIn"
-                >
-                  <Linkedin className="h-5 w-5" />
-                </a>
-                <a 
-                  href="#" 
+                  href="https://github.com/chronocoder" 
                   className="w-10 h-10 rounded-full bg-background/50 flex items-center justify-center text-white hover:bg-primary/20 transition-colors duration-200 border border-gray-800"
                   aria-label="GitHub"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   <Github className="h-5 w-5" />
                 </a>
