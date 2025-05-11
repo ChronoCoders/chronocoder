@@ -52,7 +52,7 @@ export default function AboutSection() {
               </motion.div>
 
               <img 
-                src="https://images.unsplash.com/photo-1558745010-d2a3c21762ab?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600" 
+                src="https://images.unsplash.com/photo-1526378787940-576a539ba69d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600" 
                 alt="Blockchain Developer Working" 
                 className="rounded-2xl shadow-xl border border-gray-800 z-10 relative ml-5 mt-5" 
               />
