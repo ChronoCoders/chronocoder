@@ -97,6 +97,27 @@
     @apply bg-card/70 backdrop-blur-md;
   }
   
+  /* Code animation styles */
+  .code-block {
+    @apply font-mono text-[#4A88F0] bg-[#111A33] rounded-xl p-6 overflow-hidden;
+  }
+  
+  .code-block .token-keyword {
+    @apply text-[#547AFF];
+  }
+  
+  .code-block .token-function {
+    @apply text-[#81C4FF];
+  }
+  
+  .code-block .token-comment {
+    @apply text-[#7B8FC2];
+  }
+  
+  .code-block .token-bracket {
+    @apply text-[#A6B8FF];
+  }
+  
   /* Modern tab design */
   .modern-tabs {
     @apply relative z-10 shadow-lg bg-[#0F1729] rounded-lg;

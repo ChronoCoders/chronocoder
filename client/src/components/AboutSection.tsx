@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { staggerContainer, fadeIn } from "@/lib/motion";
 import { Badge } from "@/components/ui/badge";
+import { CodeAnimation } from "@/components/ui/code-animation";
 
 const features = [
   {
@@ -37,25 +38,9 @@ export default function AboutSection() {
             className="lg:w-1/2"
           >
             <div className="relative">
-              <motion.div 
-                className="absolute -top-4 -left-4 bg-primary/20 backdrop-blur-sm p-4 rounded-lg shadow-lg"
-                initial={{ opacity: 0, x: -50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.4 }}
-                viewport={{ once: true }}
-              >
-                <h3 className="text-xl font-bold text-white mb-1">Innovating with Blockchain</h3>
-                <div className="flex items-baseline gap-2">
-                  <span className="text-3xl font-bold text-primary">5+</span>
-                  <span className="text-gray-300">Years in<br/>Blockchain</span>
-                </div>
-              </motion.div>
-
-              <img 
-                src="/src/assets/blockchain-abstract.svg" 
-                alt="Abstract Blockchain Visualization" 
-                className="rounded-2xl shadow-xl border border-gray-800 z-10 relative ml-5 mt-5" 
-              />
+              <div className="w-full aspect-[3/2] rounded-2xl shadow-xl border border-gray-800 overflow-hidden">
+                <CodeAnimation />
+              </div>
             </div>
           </motion.div>
           
