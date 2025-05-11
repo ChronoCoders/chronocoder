@@ -273,9 +273,9 @@ export function SkillRadar({ activeCategory, onHoverSkill }: SkillRadarProps) {
     return null;
   };
 
-  // Use theme-specific colors for grid lines
-  const gridStroke = "rgba(0, 0, 0, 0.1)";
-  const darkGridStroke = "rgba(255, 255, 255, 0.2)";
+  // Define chart styles that work well for both light and dark modes
+  const radarStroke = "#6366f1"; // Primary color
+  const gridStroke = isDarkMode ? "rgba(255, 255, 255, 0.2)" : "rgba(0, 0, 0, 0.2)";
 
   return (
     <div className="relative w-full h-[400px]">
@@ -290,19 +290,19 @@ export function SkillRadar({ activeCategory, onHoverSkill }: SkillRadarProps) {
         >
           <PolarGrid 
             gridType="circle" 
-            stroke={isDarkMode ? darkGridStroke : gridStroke} 
+            stroke={gridStroke} 
           />
           <PolarAngleAxis 
             dataKey={nameKey} 
             tick={{ fill: 'var(--foreground)', fontSize: 12 }} 
-            axisLine={{ stroke: isDarkMode ? darkGridStroke : gridStroke }}
+            axisLine={{ stroke: gridStroke }}
           />
           <Radar 
             name="Proficiency" 
             dataKey={dataKey} 
-            stroke="#6366f1" 
-            fill="#6366f1" 
-            fillOpacity={0.5}
+            stroke={radarStroke} 
+            fill={radarStroke} 
+            fillOpacity={isDarkMode ? 0.5 : 0.3}
             activeDot={{ r: 6, stroke: "#8b5cf6", fill: "white", strokeWidth: 2 }} 
           />
           <Tooltip content={<CustomTooltip />} />

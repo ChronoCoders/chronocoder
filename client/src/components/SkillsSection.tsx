@@ -70,7 +70,7 @@ export default function SkillsSection() {
       >
         <motion.h2 
           variants={fadeIn("up", "tween", 0.1, 1)}
-          className="text-3xl md:text-4xl font-bold mb-4 text-center"
+          className="text-3xl md:text-4xl font-bold mb-4 text-center text-gray-900 dark:text-white"
         >
           My Skills
         </motion.h2>
