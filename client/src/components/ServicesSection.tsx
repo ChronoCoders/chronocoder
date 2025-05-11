@@ -126,18 +126,20 @@ export default function ServicesSection() {
             variants={fadeIn("up", "tween", 0.3, 1)}
             className="flex justify-center mb-12"
           >
-            <TabsList className="grid grid-cols-2 md:grid-cols-4 gap-2">
-              {services.map(service => (
-                <TabsTrigger 
-                  key={service.id} 
-                  value={service.id}
-                  className="flex items-center gap-2 px-4 py-3"
-                >
-                  <service.icon className="h-5 w-5" />
-                  <span className="hidden md:inline">{service.title}</span>
-                </TabsTrigger>
-              ))}
-            </TabsList>
+            <div className="relative w-full max-w-4xl mx-auto bg-background border border-gray-800 rounded-lg shadow-lg overflow-hidden modern-tabs">
+              <TabsList className="flex w-full h-16 bg-transparent border-0">
+                {services.map(service => (
+                  <TabsTrigger 
+                    key={service.id} 
+                    value={service.id}
+                    className="modern-tab-trigger flex items-center justify-center gap-3 h-full flex-1 px-4 rounded-none border-0"
+                  >
+                    <service.icon className="h-5 w-5" />
+                    <span className="hidden md:inline">{service.title}</span>
+                  </TabsTrigger>
+                ))}
+              </TabsList>
+            </div>
           </motion.div>
           
           {services.map(service => (

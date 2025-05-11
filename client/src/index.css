@@ -96,6 +96,36 @@
   .glass-card {
     @apply bg-card/70 backdrop-blur-md;
   }
+  
+  /* Modern tab design */
+  .modern-tabs {
+    @apply relative z-10 shadow-lg bg-[#0F1729] rounded-lg;
+  }
+  
+  .modern-tab-trigger {
+    @apply relative transition-all duration-200 flex items-center justify-center text-gray-400;
+  }
+  
+  .modern-tab-trigger:hover:not([data-state="active"]) {
+    @apply text-gray-300 bg-gray-800/20;
+  }
+  
+  .modern-tab-trigger[data-state="active"] {
+    @apply text-primary relative bg-[#111A33] font-medium;
+  }
+  
+  .modern-tab-trigger[data-state="active"]::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-full h-[2.5px] bg-primary;
+  }
+  
+  .modern-tab-trigger[data-state="active"] svg {
+    @apply text-primary;
+  }
+  
+  .modern-tab-trigger:not([data-state="active"]) svg {
+    @apply text-gray-400;
+  }
 
   .skill-bar {
     --progress-width: 0%;
