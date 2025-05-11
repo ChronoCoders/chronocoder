@@ -20,10 +20,10 @@ export default function SkillBar({ name, percentage, delay = 0 }: SkillBarProps)
       viewport={{ once: true }}
     >
       <div className="flex justify-between mb-1">
-        <span className="font-medium text-gray-200">{name}</span>
-        <span className="text-gray-400">{percentage}%</span>
+        <span className="font-medium text-foreground">{name}</span>
+        <span className="text-muted-foreground">{percentage}%</span>
       </div>
-      <div className="h-2 bg-gray-800 rounded-full overflow-hidden">
+      <div className="h-2 bg-gray-200 dark:bg-gray-800 rounded-full overflow-hidden">
         <motion.div 
           className="skill-bar h-full bg-gradient rounded-full"
           style={{ "--progress-width": `${percentage}%` } as React.CSSProperties}

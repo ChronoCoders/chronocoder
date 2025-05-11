@@ -2,6 +2,8 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { staggerContainer, fadeIn } from "@/lib/motion";
 import SkillBar from "@/components/SkillBar";
+import SkillRadar from "@/components/ui/skill-radar";
+import { Info } from "lucide-react";
 
 type SkillCategory = "all" | "blockchain" | "defi" | "security" | "tools";
 
@@ -11,6 +13,16 @@ interface Skill {
   category: SkillCategory[];
 }
 
+interface SkillDetail {
+  name: string;
+  value: number;
+  description: string;
+  yearStarted: number;
+  relatedProjects: string[];
+}
+
+// This data is now duplicated in the SkillRadar component
+// In a production app, we would move this to a shared location
 const skills: Skill[] = [
   { name: "Solidity", percentage: 95, category: ["blockchain"] },
   { name: "Smart Contracts", percentage: 90, category: ["blockchain"] },
@@ -40,6 +52,8 @@ const categories = [
 
 export default function SkillsSection() {
   const [activeCategory, setActiveCategory] = useState<SkillCategory>("all");
+  const [hoveredSkill, setHoveredSkill] = useState<SkillDetail | null>(null);
+  const [viewMode, setViewMode] = useState<"bars" | "radar">("radar");
 
   const filteredSkills = skills.filter(
     skill => activeCategory === "all" || skill.category.includes(activeCategory)
@@ -62,14 +76,49 @@ export default function SkillsSection() {
         </motion.h2>
         <motion.p 
           variants={fadeIn("up", "tween", 0.2, 1)}
-          className="text-gray-400 text-center max-w-2xl mx-auto mb-10"
+          className="text-gray-400 text-center max-w-2xl mx-auto mb-6"
         >
           Comprehensive knowledge in blockchain development, DeFi protocols, and Web3 infrastructure.
         </motion.p>
         
         <motion.div 
+          variants={fadeIn("up", "tween", 0.25, 1)}
+          className="flex justify-center mb-4 gap-4"
+        >
+          <button
+            className={`py-2 px-4 rounded text-sm font-medium transition-colors duration-200 flex items-center gap-2 ${
+              viewMode === "radar"
+                ? "bg-primary text-white"
+                : "bg-background text-gray-400 hover:text-white"
+            }`}
+            onClick={() => setViewMode("radar")}
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2L2 12 12 22 22 12 12 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M12 2L12 22" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M2 12L22 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+            Radar View
+          </button>
+          <button
+            className={`py-2 px-4 rounded text-sm font-medium transition-colors duration-200 flex items-center gap-2 ${
+              viewMode === "bars"
+                ? "bg-primary text-white"
+                : "bg-background text-gray-400 hover:text-white"
+            }`}
+            onClick={() => setViewMode("bars")}
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3 3V21H21" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M18 9L13 14L9 10L5 14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+            Bar View
+          </button>
+        </motion.div>
+        
+        <motion.div 
           variants={fadeIn("up", "tween", 0.3, 1)}
-          className="flex flex-wrap justify-center gap-2 mb-12"
+          className="flex flex-wrap justify-center gap-2 mb-8"
         >
           {categories.map((category) => (
             <button
@@ -86,19 +135,35 @@ export default function SkillsSection() {
           ))}
         </motion.div>
         
-        <motion.div
-          variants={fadeIn("up", "tween", 0.4, 1)}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-4"
-        >
-          {filteredSkills.map((skill, index) => (
-            <SkillBar
-              key={skill.name}
-              name={skill.name}
-              percentage={skill.percentage}
-              delay={0.1 * (index % 4)}
+        {viewMode === "radar" ? (
+          <motion.div
+            variants={fadeIn("up", "tween", 0.4, 1)}
+            className="mt-8 relative"
+          >
+            <div className="absolute top-0 right-0 flex items-center gap-2 text-gray-400 text-sm">
+              <Info size={16} />
+              <span>Hover over the radar chart to see detailed information</span>
+            </div>
+            <SkillRadar 
+              activeCategory={activeCategory} 
+              onHoverSkill={setHoveredSkill} 
             />
-          ))}
-        </motion.div>
+          </motion.div>
+        ) : (
+          <motion.div
+            variants={fadeIn("up", "tween", 0.4, 1)}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-4"
+          >
+            {filteredSkills.map((skill, index) => (
+              <SkillBar
+                key={skill.name}
+                name={skill.name}
+                percentage={skill.percentage}
+                delay={0.1 * (index % 4)}
+              />
+            ))}
+          </motion.div>
+        )}
       </motion.div>
     </section>
   );
