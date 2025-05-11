@@ -22,7 +22,7 @@ export default function Navbar() {
   return (
     <header className={navClasses}>
       <div className="container mx-auto px-4 flex items-center justify-between">
-        <a href="#home" className="flex items-center text-2xl font-bold tracking-tight text-gray-900">
+        <a href="#home" className="flex items-center text-2xl font-bold tracking-tight text-white">
           <div className="flex flex-col leading-none mr-1">
             <span>Chrono</span>
             <span>Coder</span>
@@ -31,7 +31,7 @@ export default function Navbar() {
 
         {/* Mobile menu button */}
         <button 
-          className="lg:hidden p-2 text-gray-900 focus:outline-none" 
+          className="lg:hidden p-2 text-white focus:outline-none" 
           onClick={() => setIsOpen(!isOpen)}
           aria-label="Toggle menu"
         >
