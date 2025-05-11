@@ -24,9 +24,9 @@ const projects: Project[] = [
   },
   {
     title: "Tetra Gold",
-    description: "A gold-backed stablecoin protocol with real-world asset tokenization, automated vault management, and decentralized governance for transparent precious metal trading.",
+    description: "A synthetic token for gold with real-world asset tokenization, automated vault management, and decentralized governance for transparent trading.",
     image: "/src/assets/gold-token.svg",
-    tags: ["DeFi", "Stablecoin", "Asset Tokenization"],
+    tags: ["DeFi", "Synthetic Assets", "Tokenization"],
     categories: ["defi"]
   },
   {
