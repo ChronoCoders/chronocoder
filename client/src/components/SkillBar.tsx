@@ -23,7 +23,7 @@ export default function SkillBar({ name, percentage, delay = 0 }: SkillBarProps)
         <span className="font-medium text-foreground">{name}</span>
         <span className="text-muted-foreground">{percentage}%</span>
       </div>
-      <div className="h-2 bg-gray-200 dark:bg-gray-800 rounded-full overflow-hidden">
+      <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
         <motion.div 
           className="skill-bar h-full bg-gradient rounded-full"
           style={{ "--progress-width": `${percentage}%` } as React.CSSProperties}

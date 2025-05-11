@@ -68,50 +68,49 @@
 
   .glass-card {
     @apply backdrop-blur-md;
-    @apply bg-white/70 border border-gray-200 dark:bg-card/70 dark:border-transparent;
+    @apply bg-white/70 border border-gray-200;
   }
   
   /* Code animation styles */
   .code-block {
     @apply font-mono rounded-xl p-6 overflow-hidden;
-    @apply text-[#3060B0] bg-gray-100 border border-gray-200; 
-    @apply dark:text-[#4A88F0] dark:bg-[#111A33] dark:border-transparent;
+    @apply text-[#3060B0] bg-gray-100 border border-gray-200;
   }
   
   .code-block .token-keyword {
-    @apply text-[#1d4ed8] dark:text-[#547AFF];
+    @apply text-[#1d4ed8];
   }
   
   .code-block .token-function {
-    @apply text-[#0369a1] dark:text-[#81C4FF];
+    @apply text-[#0369a1];
   }
   
   .code-block .token-comment {
-    @apply text-[#475569] dark:text-[#7B8FC2];
+    @apply text-[#475569];
   }
   
   .code-block .token-bracket {
-    @apply text-[#6366f1] dark:text-[#A6B8FF];
+    @apply text-[#6366f1];
   }
   
   /* Modern tab design */
   .modern-tabs {
     @apply relative z-10 shadow-lg rounded-lg;
-    @apply bg-gray-100 dark:bg-[#0F1729];
+    @apply bg-gray-100;
   }
   
   .modern-tab-trigger {
     @apply relative transition-all duration-200 flex items-center justify-center;
-    @apply text-gray-600 dark:text-gray-400;
+    @apply text-gray-600;
   }
   
   .modern-tab-trigger:hover:not([data-state="active"]) {
-    @apply text-gray-700 bg-gray-200/50 dark:text-gray-300 dark:bg-gray-800/20;
+    @apply text-gray-700 bg-gray-200/50;
   }
   
   .modern-tab-trigger[data-state="active"] {
     @apply text-primary relative font-medium;
-    @apply bg-white dark:bg-[#111A33];
+    @apply bg-white;
   }
   
   .modern-tab-trigger[data-state="active"]::after {
@@ -124,7 +123,7 @@
   }
   
   .modern-tab-trigger:not([data-state="active"]) svg {
-    @apply text-gray-500 dark:text-gray-400;
+    @apply text-gray-500;
   }
 
   .skill-bar {
