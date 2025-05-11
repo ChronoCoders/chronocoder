@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { staggerContainer, fadeIn } from "@/lib/motion";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent } from "@/components/ui/card";
-import { Code, Smartphone, Palette, Blocks } from "lucide-react";
+import { Code, Smartphone, Palette, Blocks, Brain } from "lucide-react";
 
 const services = [
   {
@@ -90,6 +90,28 @@ const services = [
       "IPFS",
       "Chainlink",
       "OpenZeppelin",
+    ]
+  },
+  {
+    id: "ai",
+    title: "AI Development",
+    description: "Innovative AI solutions that integrate with blockchain technology, enabling intelligent automation, data analysis, and predictive capabilities.",
+    icon: Brain,
+    features: [
+      "ML Model Development",
+      "Predictive Analytics",
+      "NLP Solutions",
+      "AI-Blockchain Integration",
+      "Data Processing Pipelines",
+      "Autonomous Agents",
+    ],
+    technologies: [
+      "TensorFlow",
+      "PyTorch",
+      "Langchain",
+      "OpenAI",
+      "Hugging Face",
+      "Vector Databases",
     ]
   }
 ];
