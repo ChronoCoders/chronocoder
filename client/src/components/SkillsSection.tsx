@@ -76,7 +76,7 @@ export default function SkillsSection() {
         </motion.h2>
         <motion.p 
           variants={fadeIn("up", "tween", 0.2, 1)}
-          className="text-gray-400 text-center max-w-2xl mx-auto mb-6"
+          className="text-gray-500 dark:text-gray-400 text-center max-w-2xl mx-auto mb-6"
         >
           Comprehensive knowledge in blockchain development, DeFi protocols, and Web3 infrastructure.
         </motion.p>
@@ -126,7 +126,7 @@ export default function SkillsSection() {
               className={`py-2 px-4 rounded-full text-sm font-medium transition-colors duration-200 ${
                 activeCategory === category.value
                   ? "bg-primary text-white"
-                  : "bg-background text-gray-400 hover:text-white"
+                  : "bg-gray-100 dark:bg-background text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
               }`}
               onClick={() => setActiveCategory(category.value as SkillCategory)}
             >
