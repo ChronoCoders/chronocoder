@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="500" viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="yieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#10b981;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#6ee7b7;stop-opacity:0.8" />
+    </linearGradient>
+    <linearGradient id="protocolGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:0.6" />
+      <stop offset="100%" style="stop-color:#60a5fa;stop-opacity:0.6" />
+    </linearGradient>
+    <linearGradient id="protocolGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:0.6" />
+      <stop offset="100%" style="stop-color:#a78bfa;stop-opacity:0.6" />
+    </linearGradient>
+    <linearGradient id="protocolGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ec4899;stop-opacity:0.6" />
+      <stop offset="100%" style="stop-color:#f472b6;stop-opacity:0.6" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="#0f172a" />
+  
+  <!-- Background pattern -->
+  <g opacity="0.1" stroke="#10b981" stroke-width="1">
+    <line x1="0" y1="100" x2="800" y2="100" />
+    <line x1="0" y1="200" x2="800" y2="200" />
+    <line x1="0" y1="300" x2="800" y2="300" />
+    <line x1="0" y1="400" x2="800" y2="400" />
+    
+    <line x1="160" y1="0" x2="160" y2="500" />
+    <line x1="320" y1="0" x2="320" y2="500" />
+    <line x1="480" y1="0" x2="480" y2="500" />
+    <line x1="640" y1="0" x2="640" y2="500" />
+  </g>
+  
+  <!-- DeFi Protocols -->
+  <g>
+    <!-- Protocol 1 -->
+    <g transform="translate(200, 150)">
+      <circle cx="0" cy="0" r="60" fill="url(#protocolGrad1)" />
+      <text x="0" y="5" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle" fill="#f8fafc">Protocol A</text>
+      <text x="0" y="25" font-family="Arial" font-size="14" text-anchor="middle" fill="#f8fafc">4.5% APY</text>
+    </g>
+    
+    <!-- Protocol 2 -->
+    <g transform="translate(400, 150)">
+      <circle cx="0" cy="0" r="60" fill="url(#protocolGrad2)" />
+      <text x="0" y="5" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle" fill="#f8fafc">Protocol B</text>
+      <text x="0" y="25" font-family="Arial" font-size="14" text-anchor="middle" fill="#f8fafc">6.2% APY</text>
+    </g>
+    
+    <!-- Protocol 3 -->
+    <g transform="translate(600, 150)">
+      <circle cx="0" cy="0" r="60" fill="url(#protocolGrad3)" />
+      <text x="0" y="5" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle" fill="#f8fafc">Protocol C</text>
+      <text x="0" y="25" font-family="Arial" font-size="14" text-anchor="middle" fill="#f8fafc">5.8% APY</text>
+    </g>
+  </g>
+  
+  <!-- Yield Aggregator - Central Component -->
+  <g transform="translate(400, 350)">
+    <rect x="-100" y="-70" width="200" height="140" rx="10" fill="#1e293b" stroke="url(#yieldGrad)" stroke-width="3" />
+    <text x="0" y="-40" font-family="Arial" font-size="20" font-weight="bold" text-anchor="middle" fill="#f8fafc">Yield Aggregator</text>
+    <text x="0" y="-15" font-family="Arial" font-size="16" text-anchor="middle" fill="#f8fafc">Smart Allocation</text>
+    <text x="0" y="10" font-family="Arial" font-size="16" text-anchor="middle" fill="#f8fafc">Risk Management</text>
+    <text x="0" y="35" font-family="Arial" font-size="16" text-anchor="middle" fill="#f8fafc">Gas Optimization</text>
+    
+    <text x="0" y="60" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" fill="#10b981">7.5% APY</text>
+  </g>
+  
+  <!-- Connection lines from protocols to aggregator -->
+  <g>
+    <path d="M200,210 C200,270 300,320 400,290" stroke="url(#protocolGrad1)" stroke-width="3" fill="none" />
+    <path d="M400,210 C400,260 400,260 400,280" stroke="url(#protocolGrad2)" stroke-width="3" fill="none" />
+    <path d="M600,210 C600,270 500,320 400,290" stroke="url(#protocolGrad3)" stroke-width="3" fill="none" />
+  </g>
+  
+  <!-- Flow indicators - coins moving to protocols -->
+  <g>
+    <circle cx="400" cy="240" r="8" fill="#f8fafc">
+      <animate attributeName="cy" from="240" to="280" dur="2s" repeatCount="indefinite" />
+    </circle>
+    
+    <circle cx="300" cy="250" r="8" fill="#f8fafc">
+      <animate attributeName="cx" from="300" to="400" dur="2.5s" repeatCount="indefinite" />
+      <animate attributeName="cy" from="250" to="280" dur="2.5s" repeatCount="indefinite" />
+    </circle>
+    
+    <circle cx="500" cy="250" r="8" fill="#f8fafc">
+      <animate attributeName="cx" from="500" to="400" dur="3s" repeatCount="indefinite" />
+      <animate attributeName="cy" from="250" to="280" dur="3s" repeatCount="indefinite" />
+    </circle>
+  </g>
+  
+  <!-- Title -->
+  <text x="400" y="50" font-family="Arial" font-size="24" font-weight="bold" text-anchor="middle" fill="#f8fafc">DeFi Yield Aggregator</text>
+</svg>

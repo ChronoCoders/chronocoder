@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="500" viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="chainAGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#60a5fa;stop-opacity:0.8" />
+    </linearGradient>
+    <linearGradient id="chainBGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#a78bfa;stop-opacity:0.8" />
+    </linearGradient>
+    <linearGradient id="bridgeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:0.8" />
+      <stop offset="50%" style="stop-color:#60a5fa;stop-opacity:0.8" />
+      <stop offset="50%" style="stop-color:#8b5cf6;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#a78bfa;stop-opacity:0.8" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="#0f172a" />
+  
+  <!-- Abstract blockchain grids -->
+  <g>
+    <!-- Chain A (Left side) -->
+    <g transform="translate(200, 250)">
+      <rect x="-125" y="-125" width="250" height="250" rx="10" fill="#1e293b" />
+      
+      <!-- Chain A Node structure -->
+      <circle cx="-60" cy="-60" r="20" fill="url(#chainAGrad)" />
+      <circle cx="60" cy="-60" r="20" fill="url(#chainAGrad)" />
+      <circle cx="-60" cy="60" r="20" fill="url(#chainAGrad)" />
+      <circle cx="60" cy="60" r="20" fill="url(#chainAGrad)" />
+      <circle cx="0" cy="0" r="30" fill="url(#chainAGrad)" />
+      
+      <!-- Chain A Connections -->
+      <line x1="-60" y1="-60" x2="60" y2="-60" stroke="#3b82f6" stroke-width="2" />
+      <line x1="60" y1="-60" x2="60" y2="60" stroke="#3b82f6" stroke-width="2" />
+      <line x1="60" y1="60" x2="-60" y2="60" stroke="#3b82f6" stroke-width="2" />
+      <line x1="-60" y1="60" x2="-60" y2="-60" stroke="#3b82f6" stroke-width="2" />
+      
+      <line x1="-60" y1="-60" x2="0" y2="0" stroke="#3b82f6" stroke-width="2" />
+      <line x1="60" y1="-60" x2="0" y2="0" stroke="#3b82f6" stroke-width="2" />
+      <line x1="60" y1="60" x2="0" y2="0" stroke="#3b82f6" stroke-width="2" />
+      <line x1="-60" y1="60" x2="0" y2="0" stroke="#3b82f6" stroke-width="2" />
+      
+      <!-- Chain identifier -->
+      <text x="0" y="-100" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" fill="#3b82f6">Chain A</text>
+    </g>
+    
+    <!-- Chain B (Right side) -->
+    <g transform="translate(600, 250)">
+      <rect x="-125" y="-125" width="250" height="250" rx="10" fill="#1e293b" />
+      
+      <!-- Chain B Node structure (different pattern) -->
+      <circle cx="0" cy="-70" r="20" fill="url(#chainBGrad)" />
+      <circle cx="70" cy="0" r="20" fill="url(#chainBGrad)" />
+      <circle cx="0" cy="70" r="20" fill="url(#chainBGrad)" />
+      <circle cx="-70" cy="0" r="20" fill="url(#chainBGrad)" />
+      <circle cx="0" cy="0" r="30" fill="url(#chainBGrad)" />
+      
+      <!-- Chain B Connections -->
+      <line x1="0" y1="-70" x2="70" y2="0" stroke="#8b5cf6" stroke-width="2" />
+      <line x1="70" y1="0" x2="0" y2="70" stroke="#8b5cf6" stroke-width="2" />
+      <line x1="0" y1="70" x2="-70" y2="0" stroke="#8b5cf6" stroke-width="2" />
+      <line x1="-70" y1="0" x2="0" y2="-70" stroke="#8b5cf6" stroke-width="2" />
+      
+      <line x1="0" y1="-70" x2="0" y2="0" stroke="#8b5cf6" stroke-width="2" />
+      <line x1="70" y1="0" x2="0" y2="0" stroke="#8b5cf6" stroke-width="2" />
+      <line x1="0" y1="70" x2="0" y2="0" stroke="#8b5cf6" stroke-width="2" />
+      <line x1="-70" y1="0" x2="0" y2="0" stroke="#8b5cf6" stroke-width="2" />
+      
+      <!-- Chain identifier -->
+      <text x="0" y="-100" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" fill="#8b5cf6">Chain B</text>
+    </g>
+  </g>
+  
+  <!-- The Bridge Structure -->
+  <g>
+    <!-- Bridge arc -->
+    <path d="M 275 250 C 350 150, 450 150, 525 250" stroke="url(#bridgeGrad)" stroke-width="15" fill="none" stroke-linecap="round" />
+    
+    <!-- Bridge supports -->
+    <rect x="275" y="250" width="15" height="50" rx="2" fill="#64748b" />
+    <rect x="510" y="250" width="15" height="50" rx="2" fill="#64748b" />
+    
+    <!-- Asset transfer animation -->
+    <g>
+      <circle cx="300" cy="220" r="12" fill="#3b82f6">
+        <animate attributeName="cx" from="300" to="500" dur="3s" repeatCount="indefinite" />
+        <animate attributeName="fill" from="#3b82f6" to="#8b5cf6" dur="3s" repeatCount="indefinite" />
+      </circle>
+      
+      <circle cx="500" cy="220" r="12" fill="#8b5cf6">
+        <animate attributeName="cx" from="500" to="300" dur="3s" repeatCount="indefinite" />
+        <animate attributeName="fill" from="#8b5cf6" to="#3b82f6" dur="3s" repeatCount="indefinite" />
+      </circle>
+    </g>
+  </g>
+  
+  <!-- Transfer data packets -->
+  <g opacity="0.6">
+    <rect x="375" y="180" width="50" height="20" rx="5" fill="#22d3ee">
+      <animate attributeName="y" from="180" to="190" dur="2s" repeatCount="indefinite" />
+    </rect>
+    <text x="400" y="195" font-family="Arial" font-size="12" font-weight="bold" text-anchor="middle" fill="#0f172a">DATA</text>
+  </g>
+  
+  <!-- Bridge name -->
+  <g>
+    <text x="400" y="125" font-family="Arial" font-size="20" font-weight="bold" text-anchor="middle" fill="#f8fafc">Cross-Chain Bridge</text>
+  </g>
+</svg>

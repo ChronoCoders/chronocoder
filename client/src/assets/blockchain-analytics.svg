@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="500" viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="chartGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:0.7" />
+      <stop offset="50%" style="stop-color:#8b5cf6;stop-opacity:0.7" />
+      <stop offset="100%" style="stop-color:#ec4899;stop-opacity:0.7" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="#0f172a" />
+  
+  <!-- Grid background -->
+  <g stroke="#1e293b" stroke-width="1">
+    <line x1="100" y1="100" x2="100" y2="400" />
+    <line x1="100" y1="400" x2="700" y2="400" />
+    
+    <line x1="100" y1="350" x2="700" y2="350" stroke-dasharray="2,2" opacity="0.5" />
+    <line x1="100" y1="300" x2="700" y2="300" stroke-dasharray="2,2" opacity="0.5" />
+    <line x1="100" y1="250" x2="700" y2="250" stroke-dasharray="2,2" opacity="0.5" />
+    <line x1="100" y1="200" x2="700" y2="200" stroke-dasharray="2,2" opacity="0.5" />
+    <line x1="100" y1="150" x2="700" y2="150" stroke-dasharray="2,2" opacity="0.5" />
+    <line x1="100" y1="100" x2="700" y2="100" stroke-dasharray="2,2" opacity="0.5" />
+    
+    <line x1="200" y1="400" x2="200" y2="395" />
+    <line x1="300" y1="400" x2="300" y2="395" />
+    <line x1="400" y1="400" x2="400" y2="395" />
+    <line x1="500" y1="400" x2="500" y2="395" />
+    <line x1="600" y1="400" x2="600" y2="395" />
+    <line x1="700" y1="400" x2="700" y2="395" />
+  </g>
+  
+  <!-- Analytics chart lines -->
+  <g>
+    <!-- Line chart 1 - Price -->
+    <polyline 
+      points="100,350 150,330 200,350 250,300 300,280 350,250 400,270 450,200 500,150 550,170 600,130 650,150 700,120" 
+      fill="none" 
+      stroke="#3b82f6" 
+      stroke-width="3"
+      stroke-linejoin="round"
+    />
+    
+    <!-- Line chart 2 - Volume -->
+    <polyline 
+      points="100,380 150,360 200,370 250,340 300,350 350,330 400,320 450,330 500,300 550,310 600,280 650,290 700,260" 
+      fill="none" 
+      stroke="#8b5cf6" 
+      stroke-width="3"
+      stroke-linejoin="round"
+    />
+    
+    <!-- Bar chart -->
+    <g opacity="0.7">
+      <rect x="140" y="370" width="20" height="30" fill="url(#chartGrad)" />
+      <rect x="190" y="380" width="20" height="20" fill="url(#chartGrad)" />
+      <rect x="240" y="350" width="20" height="50" fill="url(#chartGrad)" />
+      <rect x="290" y="360" width="20" height="40" fill="url(#chartGrad)" />
+      <rect x="340" y="340" width="20" height="60" fill="url(#chartGrad)" />
+      <rect x="390" y="330" width="20" height="70" fill="url(#chartGrad)" />
+      <rect x="440" y="350" width="20" height="50" fill="url(#chartGrad)" />
+      <rect x="490" y="320" width="20" height="80" fill="url(#chartGrad)" />
+      <rect x="540" y="330" width="20" height="70" fill="url(#chartGrad)" />
+      <rect x="590" y="300" width="20" height="100" fill="url(#chartGrad)" />
+      <rect x="640" y="320" width="20" height="80" fill="url(#chartGrad)" />
+    </g>
+  </g>
+  
+  <!-- Dashboard elements -->
+  <g>
+    <!-- Dashboard header -->
+    <rect x="120" y="50" width="560" height="30" rx="5" fill="#1e293b" />
+    <text x="400" y="70" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle" fill="#f8fafc">Blockchain Analytics Dashboard</text>
+    
+    <!-- Chart legends -->
+    <g transform="translate(120, 430)">
+      <circle cx="10" cy="10" r="5" fill="#3b82f6" />
+      <text x="25" y="14" font-family="Arial" font-size="12" fill="#f8fafc">Price</text>
+      
+      <circle cx="80" cy="10" r="5" fill="#8b5cf6" />
+      <text x="95" y="14" font-family="Arial" font-size="12" fill="#f8fafc">Volume</text>
+      
+      <rect x="150" y="5" width="10" height="10" fill="url(#chartGrad)" />
+      <text x="170" y="14" font-family="Arial" font-size="12" fill="#f8fafc">Transactions</text>
+    </g>
+    
+    <!-- KPI boxes -->
+    <g>
+      <rect x="120" y="450" width="130" height="40" rx="5" fill="#1e293b" />
+      <text x="140" y="475" font-family="Arial" font-size="12" fill="#f8fafc">TVL:</text>
+      <text x="185" y="475" font-family="Arial" font-size="14" font-weight="bold" fill="#3b82f6">$1.45B</text>
+      
+      <rect x="270" y="450" width="130" height="40" rx="5" fill="#1e293b" />
+      <text x="290" y="475" font-family="Arial" font-size="12" fill="#f8fafc">Users:</text>
+      <text x="340" y="475" font-family="Arial" font-size="14" font-weight="bold" fill="#8b5cf6">284.3K</text>
+      
+      <rect x="420" y="450" width="130" height="40" rx="5" fill="#1e293b" />
+      <text x="440" y="475" font-family="Arial" font-size="12" fill="#f8fafc">TPS:</text>
+      <text x="485" y="475" font-family="Arial" font-size="14" font-weight="bold" fill="#ec4899">2,456</text>
+      
+      <rect x="570" y="450" width="130" height="40" rx="5" fill="#1e293b" />
+      <text x="590" y="475" font-family="Arial" font-size="12" fill="#f8fafc">Gas (gwei):</text>
+      <text x="665" y="475" font-family="Arial" font-size="14" font-weight="bold" fill="#10b981">22.4</text>
+    </g>
+  </g>
+  
+  <!-- Data points highlights -->
+  <g>
+    <circle cx="450" cy="200" r="6" fill="#f8fafc" stroke="#3b82f6" stroke-width="2" />
+    <circle cx="600" cy="130" r="6" fill="#f8fafc" stroke="#3b82f6" stroke-width="2" />
+    <circle cx="590" cy="300" r="6" fill="#f8fafc" stroke="#8b5cf6" stroke-width="2" />
+  </g>
+</svg>
