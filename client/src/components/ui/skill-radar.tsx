@@ -179,7 +179,7 @@ const SkillDetailCard = ({ skill, isVisible }: SkillDetailCardProps) => {
   
   return (
     <motion.div 
-      className="absolute top-0 right-4 w-72 bg-white border border-gray-200 rounded-lg shadow-lg p-5 z-10 overflow-hidden"
+      className="absolute top-0 right-4 w-72 bg-card/90 border border-border rounded-lg shadow-lg p-5 z-10 overflow-hidden backdrop-blur-sm"
       initial={{ opacity: 0, height: 0 }}
       animate={{ 
         opacity: isVisible ? 1 : 0,
@@ -187,25 +187,25 @@ const SkillDetailCard = ({ skill, isVisible }: SkillDetailCardProps) => {
       }}
       transition={{ duration: 0.3 }}
     >
-      <h3 className="text-lg font-semibold text-gray-900">{skill.name}</h3>
+      <h3 className="text-lg font-semibold text-foreground">{skill.name}</h3>
       <div className="flex items-center my-2">
-        <div className="flex-1 h-2 bg-gray-200 rounded-full overflow-hidden">
+        <div className="flex-1 h-2 bg-muted rounded-full overflow-hidden">
           <div 
-            className="h-full bg-indigo-600 rounded-full" 
+            className="h-full bg-primary rounded-full" 
             style={{ width: `${skill.value}%` }}
           ></div>
         </div>
-        <span className="ml-3 text-gray-700 font-medium">{skill.value}%</span>
+        <span className="ml-3 text-foreground font-medium">{skill.value}%</span>
       </div>
-      <p className="text-sm text-gray-600 mt-3 leading-relaxed">{skill.description}</p>
+      <p className="text-sm text-muted-foreground mt-3 leading-relaxed">{skill.description}</p>
       <div className="mt-4 text-sm">
-        <p className="text-gray-800">
+        <p className="text-foreground">
           <span className="font-medium">Experience:</span> {yearsExperience} years
         </p>
-        <p className="text-gray-800 mt-2">
+        <p className="text-foreground mt-2">
           <span className="font-medium">Related projects:</span>
         </p>
-        <ul className="list-disc list-inside text-gray-600 text-xs mt-1 space-y-1">
+        <ul className="list-disc list-inside text-muted-foreground text-xs mt-1 space-y-1">
           {skill.relatedProjects.map((project, index) => (
             <li key={index}>{project}</li>
           ))}
@@ -249,29 +249,29 @@ export function SkillRadar({ activeCategory, onHoverSkill }: SkillRadarProps) {
     if (active && payload && payload.length) {
       const data = payload[0].payload;
       return (
-        <div className="bg-white backdrop-blur p-3 border border-gray-200 rounded-md shadow-lg">
-          <p className="font-semibold text-gray-900">{data[nameKey]}</p>
-          <p className="text-indigo-600 font-medium">{`${data[dataKey]}% Proficiency`}</p>
+        <div className="bg-card/90 backdrop-blur-sm p-3 border border-border rounded-md shadow-lg">
+          <p className="font-semibold text-foreground">{data[nameKey]}</p>
+          <p className="text-primary font-medium">{`${data[dataKey]}% Proficiency`}</p>
         </div>
       );
     }
     return null;
   };
 
-  // Chart configuration for a single theme
+  // Chart configuration for dark theme
   const chartConfig = {
     primaryColor: "#4f46e5", // Indigo-600
-    gridColor: "rgba(0, 0, 0, 0.3)",
-    fillOpacity: 0.15,
-    textColor: "#1e293b", // Slate-800
-    backgroundColor: "white",
-    borderColor: "#e5e7eb", // Gray-200
+    gridColor: "rgba(255, 255, 255, 0.2)",
+    fillOpacity: 0.25,
+    textColor: "#e2e8f0", // Slate-200
+    backgroundColor: "#111A33", // Dark background
+    borderColor: "#1e293b", // Slate-800
   };
 
   return (
     <div className="relative w-full h-[400px]">
       {/* Chart container */}
-      <div className="w-full h-full rounded-xl p-4 bg-white border border-gray-100 shadow-sm">
+      <div className="w-full h-full rounded-xl p-4 bg-[#111A33] border border-border shadow-sm">
         <ResponsiveContainer width="100%" height="100%">
           <RadarChart 
             cx="50%" 
