@@ -140,8 +140,8 @@ export default function SkillsSection() {
             variants={fadeIn("up", "tween", 0.4, 1)}
             className="mt-8 relative"
           >
-            <div className="absolute top-0 right-0 flex items-center gap-2 text-gray-500 dark:text-gray-400 text-sm">
-              <Info size={16} />
+            <div className="absolute top-0 right-0 flex items-center gap-2 text-gray-600 dark:text-gray-400 text-sm bg-white/70 dark:bg-black/10 backdrop-blur-sm px-3 py-1 rounded-md border border-gray-100 dark:border-gray-800">
+              <Info size={16} className="text-primary" />
               <span>Hover over the radar chart to see detailed information</span>
             </div>
             <SkillRadar 

@@ -6,7 +6,8 @@ import {
   PolarAngleAxis, 
   Radar, 
   Tooltip,
-  Legend
+  Legend,
+  PolarRadiusAxis
 } from 'recharts';
 import { motion } from 'framer-motion';
 
@@ -178,7 +179,7 @@ const SkillDetailCard = ({ skill, isVisible }: SkillDetailCardProps) => {
   
   return (
     <motion.div 
-      className="absolute top-0 right-0 w-64 bg-white dark:bg-card border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg p-4 z-10 overflow-hidden"
+      className="absolute top-0 right-4 w-72 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg p-5 z-10 overflow-hidden"
       initial={{ opacity: 0, height: 0 }}
       animate={{ 
         opacity: isVisible ? 1 : 0,
@@ -186,20 +187,25 @@ const SkillDetailCard = ({ skill, isVisible }: SkillDetailCardProps) => {
       }}
       transition={{ duration: 0.3 }}
     >
-      <h3 className="text-lg font-semibold text-foreground">{skill.name}</h3>
-      <div className="flex items-center text-foreground my-1">
-        <div className="bg-primary h-2 rounded" style={{ width: `${skill.value}%` }}></div>
-        <span className="ml-2">{skill.value}%</span>
+      <h3 className="text-lg font-semibold text-gray-900 dark:text-white">{skill.name}</h3>
+      <div className="flex items-center my-2">
+        <div className="flex-1 h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+          <div 
+            className="h-full bg-primary rounded-full" 
+            style={{ width: `${skill.value}%` }}
+          ></div>
+        </div>
+        <span className="ml-3 text-gray-700 dark:text-gray-300 font-medium">{skill.value}%</span>
       </div>
-      <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">{skill.description}</p>
-      <div className="mt-3 text-sm">
-        <p className="text-foreground">
+      <p className="text-sm text-gray-600 dark:text-gray-300 mt-3 leading-relaxed">{skill.description}</p>
+      <div className="mt-4 text-sm">
+        <p className="text-gray-800 dark:text-gray-200">
           <span className="font-medium">Experience:</span> {yearsExperience} years
         </p>
-        <p className="text-foreground mt-1">
+        <p className="text-gray-800 dark:text-gray-200 mt-2">
           <span className="font-medium">Related projects:</span>
         </p>
-        <ul className="list-disc list-inside text-gray-500 dark:text-gray-400 text-xs">
+        <ul className="list-disc list-inside text-gray-600 dark:text-gray-300 text-xs mt-1 space-y-1">
           {skill.relatedProjects.map((project, index) => (
             <li key={index}>{project}</li>
           ))}
@@ -263,9 +269,9 @@ export function SkillRadar({ activeCategory, onHoverSkill }: SkillRadarProps) {
     if (active && payload && payload.length) {
       const data = payload[0].payload;
       return (
-        <div className="bg-white dark:bg-card p-2 border border-gray-200 dark:border-gray-700 rounded shadow-lg text-xs text-foreground">
-          <p className="font-semibold">{data[nameKey]}</p>
-          <p>{data[dataKey]}%</p>
+        <div className="bg-white dark:bg-gray-800 p-3 border border-gray-200 dark:border-gray-700 rounded shadow-lg text-xs">
+          <p className="font-semibold text-gray-900 dark:text-white">{data[nameKey]}</p>
+          <p className="text-gray-700 dark:text-gray-300 font-medium">{data[dataKey]}%</p>
         </div>
       );
     }
@@ -273,9 +279,12 @@ export function SkillRadar({ activeCategory, onHoverSkill }: SkillRadarProps) {
     return null;
   };
 
-  // Define chart styles that work well for both light and dark modes
-  const radarStroke = "#6366f1"; // Primary color
-  const gridStroke = isDarkMode ? "rgba(255, 255, 255, 0.2)" : "rgba(0, 0, 0, 0.2)";
+  // Define theme-specific chart styling
+  // Light mode and dark mode specific colors
+  const primaryColor = "#6366f1"; // Consistent across themes
+  const gridStrokeColor = isDarkMode ? "rgba(255, 255, 255, 0.15)" : "rgba(0, 0, 0, 0.25)";
+  const fillOpacity = isDarkMode ? 0.6 : 0.25;
+  const tickColor = isDarkMode ? "#f1f5f9" : "#334155"; // text color
 
   return (
     <div className="relative w-full h-[400px]">
@@ -287,26 +296,63 @@ export function SkillRadar({ activeCategory, onHoverSkill }: SkillRadarProps) {
           data={radarData}
           onMouseMove={(e) => e && e.activePayload && handleRadarMouseEnter(e.activePayload[0])}
           onMouseLeave={handleRadarMouseLeave}
+          margin={{ top: 10, right: 30, bottom: 10, left: 30 }}
         >
+          {/* Circular grid lines */}
           <PolarGrid 
             gridType="circle" 
-            stroke={gridStroke} 
+            stroke={gridStrokeColor}
+            radialLines={false}
           />
+          
+          {/* Labels around the chart */}
           <PolarAngleAxis 
             dataKey={nameKey} 
-            tick={{ fill: 'var(--foreground)', fontSize: 12 }} 
-            axisLine={{ stroke: gridStroke }}
+            tick={{ fill: tickColor, fontSize: 12, fontWeight: 500 }}
+            axisLine={{ stroke: gridStrokeColor, strokeWidth: 1 }}
+            tickLine={false}
           />
+          
+          {/* Skill value axis */}
+          <PolarRadiusAxis 
+            angle={30} 
+            domain={[0, 100]} 
+            tick={{ fill: tickColor, fontSize: 10 }}
+            tickCount={4}
+            stroke={gridStrokeColor}
+            axisLine={false}
+          />
+          
+          {/* The radar itself */}
           <Radar 
             name="Proficiency" 
             dataKey={dataKey} 
-            stroke={radarStroke} 
-            fill={radarStroke} 
-            fillOpacity={isDarkMode ? 0.5 : 0.3}
-            activeDot={{ r: 6, stroke: "#8b5cf6", fill: "white", strokeWidth: 2 }} 
+            stroke={primaryColor} 
+            fill={primaryColor} 
+            fillOpacity={fillOpacity}
+            strokeWidth={2}
+            activeDot={{ 
+              r: 6, 
+              stroke: isDarkMode ? "#a78bfa" : "#6366f1", 
+              fill: "white", 
+              strokeWidth: 2 
+            }} 
           />
+          
+          {/* Interactive tooltip */}
           <Tooltip content={<CustomTooltip />} />
-          <Legend formatter={(value) => <span className="text-foreground">{value}</span>} />
+          
+          {/* Legend below the chart */}
+          <Legend 
+            formatter={(value) => (
+              <span className="text-gray-900 dark:text-white font-medium">{value}</span>
+            )} 
+            iconSize={10}
+            wrapperStyle={{ 
+              paddingTop: 10,
+              fontSize: '0.875rem' 
+            }}
+          />
         </RadarChart>
       </ResponsiveContainer>
 
