@@ -18,42 +18,42 @@ const projects: Project[] = [
   {
     title: "Bytus Cryptocurrency Banking",
     description: "A comprehensive crypto banking platform integrating traditional banking services with cryptocurrency functionality, featuring secure wallets, fiat on/off ramps, and institutional-grade custody solutions.",
-    image: "https://images.unsplash.com/photo-1629415090861-15333c06f82a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=500",
+    image: "https://images.unsplash.com/photo-1639815188546-c43c240be01f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=500",
     tags: ["Banking", "Crypto", "KYC/AML", "Security"],
     categories: ["banking"]
   },
   {
     title: "Tetra Gold",
     description: "A gold-backed stablecoin protocol with real-world asset tokenization, automated vault management, and decentralized governance for transparent precious metal trading.",
-    image: "https://images.unsplash.com/photo-1518546305927-5a555bb7020d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=500",
+    image: "https://images.unsplash.com/photo-1625727666440-4c3ab5e6731c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=500",
     tags: ["DeFi", "Stablecoin", "Asset Tokenization"],
     categories: ["defi"]
   },
   {
     title: "StakeRise",
     description: "An advanced staking protocol with dynamic yield optimization, cross-chain liquidity aggregation, and automated compounding strategies for maximized returns.",
-    image: "https://images.unsplash.com/photo-1639322538000-33bf75035939?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=500",
+    image: "https://images.unsplash.com/photo-1644288233465-48532285a82c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=500",
     tags: ["Staking", "Yield", "Cross-chain"],
     categories: ["defi"]
   },
   {
     title: "Cross-Chain Bridge Protocol",
     description: "A secure bridge infrastructure enabling seamless asset transfer across multiple blockchain networks with automated security monitoring and liquidity management.",
-    image: "https://images.unsplash.com/photo-1642784353782-91bfdd66777f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=500",
+    image: "https://images.unsplash.com/photo-1635236121331-a3a564b2ecf1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=500",
     tags: ["Bridge", "Security", "Multi-chain"],
     categories: ["infrastructure"]
   },
   {
     title: "DeFi Yield Aggregator",
     description: "An intelligent yield farming protocol that automatically allocates assets across multiple DeFi platforms to maximize returns while minimizing risk and gas costs.",
-    image: "https://images.unsplash.com/photo-1621761191319-c6fb62004040?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=500",
+    image: "https://images.unsplash.com/photo-1640340434855-6084b1f4901c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=500",
     tags: ["DeFi", "Yield Farming", "Automation"],
     categories: ["defi"]
   },
   {
     title: "Blockchain Analytics Platform",
     description: "A comprehensive analytics suite providing real-time insights into blockchain metrics, DeFi protocols, and market trends with advanced visualization tools.",
-    image: "https://images.unsplash.com/photo-1616077168712-fc6c788be4ce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=500",
+    image: "https://images.unsplash.com/photo-1639762681057-408e52192e55?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=500",
     tags: ["Analytics", "Data", "Visualization"],
     categories: ["infrastructure"]
   }
