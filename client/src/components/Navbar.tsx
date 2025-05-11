@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { motion } from "framer-motion";
+import { ChronoCoderLogo } from "@/components/ui/ChronoCoderLogo";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -22,11 +23,8 @@ export default function Navbar() {
   return (
     <header className={navClasses}>
       <div className="container mx-auto px-4 flex items-center justify-between">
-        <a href="#home" className="flex items-center text-2xl font-bold tracking-tight text-white">
-          <div className="flex flex-col leading-none mr-1">
-            <span>Chrono</span>
-            <span>Coder</span>
-          </div>
+        <a href="#home" className="flex items-center tracking-tight text-white">
+          <ChronoCoderLogo size="md" />
         </a>
 
         {/* Mobile menu button */}
