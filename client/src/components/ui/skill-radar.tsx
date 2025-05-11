@@ -288,7 +288,10 @@ export function SkillRadar({ activeCategory, onHoverSkill }: SkillRadarProps) {
           onMouseMove={(e) => e && e.activePayload && handleRadarMouseEnter(e.activePayload[0])}
           onMouseLeave={handleRadarMouseLeave}
         >
-          <PolarGrid gridType="circle" stroke={isDarkMode ? darkGridStroke : gridStroke} />
+          <PolarGrid 
+            gridType="circle" 
+            stroke={isDarkMode ? darkGridStroke : gridStroke} 
+          />
           <PolarAngleAxis 
             dataKey={nameKey} 
             tick={{ fill: 'var(--foreground)', fontSize: 12 }} 

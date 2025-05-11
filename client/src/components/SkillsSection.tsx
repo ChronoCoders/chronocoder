@@ -60,7 +60,7 @@ export default function SkillsSection() {
   );
 
   return (
-    <section id="skills" className="py-20 bg-card overflow-hidden relative">
+    <section id="skills" className="py-20 bg-gray-50 dark:bg-card overflow-hidden relative">
       <motion.div 
         variants={staggerContainer}
         initial="hidden"
@@ -89,7 +89,7 @@ export default function SkillsSection() {
             className={`py-2 px-4 rounded text-sm font-medium transition-colors duration-200 flex items-center gap-2 ${
               viewMode === "radar"
                 ? "bg-primary text-white"
-                : "bg-background text-gray-400 hover:text-white"
+                : "bg-gray-100 dark:bg-background text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
             }`}
             onClick={() => setViewMode("radar")}
           >
@@ -104,7 +104,7 @@ export default function SkillsSection() {
             className={`py-2 px-4 rounded text-sm font-medium transition-colors duration-200 flex items-center gap-2 ${
               viewMode === "bars"
                 ? "bg-primary text-white"
-                : "bg-background text-gray-400 hover:text-white"
+                : "bg-gray-100 dark:bg-background text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
             }`}
             onClick={() => setViewMode("bars")}
           >
@@ -140,7 +140,7 @@ export default function SkillsSection() {
             variants={fadeIn("up", "tween", 0.4, 1)}
             className="mt-8 relative"
           >
-            <div className="absolute top-0 right-0 flex items-center gap-2 text-gray-400 text-sm">
+            <div className="absolute top-0 right-0 flex items-center gap-2 text-gray-500 dark:text-gray-400 text-sm">
               <Info size={16} />
               <span>Hover over the radar chart to see detailed information</span>
             </div>
