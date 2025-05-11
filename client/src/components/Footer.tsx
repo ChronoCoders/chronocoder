@@ -3,7 +3,7 @@ import { fadeIn } from "@/lib/motion";
 
 export default function Footer() {
   return (
-    <footer className="py-12 bg-card/50 border-t border-gray-800">
+    <footer className="py-12 bg-card/50 border-t border-gray-800" role="contentinfo" aria-label="Site Footer">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <motion.div 
@@ -13,13 +13,14 @@ export default function Footer() {
             viewport={{ once: true }}
             className="md:col-span-1"
           >
-            <div className="flex items-center mb-4">
+            <div className="flex items-center mb-4" itemScope itemType="https://schema.org/Organization">
               <div className="flex flex-col leading-none mr-1 text-xl font-bold">
-                <span>Chrono</span>
-                <span>Coder</span>
+                <span itemProp="name">Chrono</span>
+                <span itemProp="name">Coder</span>
+                <meta itemProp="url" content="https://chronocoder.dev" />
               </div>
             </div>
-            <p className="text-gray-400 text-sm">
+            <p className="text-gray-400 text-sm" itemProp="description">
               Creating elegant solutions for complex problems through code and design.
             </p>
           </motion.div>
@@ -31,12 +32,12 @@ export default function Footer() {
             viewport={{ once: true }}
             className="md:col-span-1"
           >
-            <h3 className="text-white font-semibold mb-4">Quick Links</h3>
-            <ul className="space-y-2">
-              <li><a href="#about" className="text-gray-400 hover:text-primary transition-colors">About Me</a></li>
-              <li><a href="#skills" className="text-gray-400 hover:text-primary transition-colors">My Skills</a></li>
-              <li><a href="#projects" className="text-gray-400 hover:text-primary transition-colors">Projects</a></li>
-              <li><a href="#contact" className="text-gray-400 hover:text-primary transition-colors">Contact</a></li>
+            <h3 className="text-white font-semibold mb-4" id="quick-links-heading">Quick Links</h3>
+            <ul className="space-y-2" aria-labelledby="quick-links-heading" role="menu">
+              <li role="none"><a href="#about" className="text-gray-400 hover:text-primary transition-colors" role="menuitem">About Me</a></li>
+              <li role="none"><a href="#skills" className="text-gray-400 hover:text-primary transition-colors" role="menuitem">My Skills</a></li>
+              <li role="none"><a href="#projects" className="text-gray-400 hover:text-primary transition-colors" role="menuitem">Projects</a></li>
+              <li role="none"><a href="#contact" className="text-gray-400 hover:text-primary transition-colors" role="menuitem">Contact</a></li>
             </ul>
           </motion.div>
           
@@ -47,13 +48,39 @@ export default function Footer() {
             viewport={{ once: true }}
             className="md:col-span-1"
           >
-            <h3 className="text-white font-semibold mb-4">Services</h3>
-            <ul className="space-y-2">
-              <li><a href="#services" className="text-gray-400 hover:text-primary transition-colors">Web Development</a></li>
-              <li><a href="#services" className="text-gray-400 hover:text-primary transition-colors">Mobile Development</a></li>
-              <li><a href="#services" className="text-gray-400 hover:text-primary transition-colors">UI/UX Design</a></li>
-              <li><a href="#services" className="text-gray-400 hover:text-primary transition-colors">Blockchain Development</a></li>
-              <li><a href="#services" className="text-gray-400 hover:text-primary transition-colors">AI Development</a></li>
+            <h3 className="text-white font-semibold mb-4" id="services-heading">Services</h3>
+            <ul className="space-y-2" aria-labelledby="services-heading" role="menu" itemScope itemType="https://schema.org/ItemList">
+              <meta itemProp="itemListOrder" content="Unordered" />
+              <li role="none" itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
+                <a href="#services" className="text-gray-400 hover:text-primary transition-colors" role="menuitem" itemProp="url">
+                  <span itemProp="name">Smart Contract Development</span>
+                </a>
+                <meta itemProp="position" content="1" />
+              </li>
+              <li role="none" itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
+                <a href="#services" className="text-gray-400 hover:text-primary transition-colors" role="menuitem" itemProp="url">
+                  <span itemProp="name">DeFi Protocol Engineering</span>
+                </a>
+                <meta itemProp="position" content="2" />
+              </li>
+              <li role="none" itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
+                <a href="#services" className="text-gray-400 hover:text-primary transition-colors" role="menuitem" itemProp="url">
+                  <span itemProp="name">Blockchain Integration</span>
+                </a>
+                <meta itemProp="position" content="3" />
+              </li>
+              <li role="none" itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
+                <a href="#services" className="text-gray-400 hover:text-primary transition-colors" role="menuitem" itemProp="url">
+                  <span itemProp="name">Security Auditing</span>
+                </a>
+                <meta itemProp="position" content="4" />
+              </li>
+              <li role="none" itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
+                <a href="#services" className="text-gray-400 hover:text-primary transition-colors" role="menuitem" itemProp="url">
+                  <span itemProp="name">Tokenomics Design</span>
+                </a>
+                <meta itemProp="position" content="5" />
+              </li>
             </ul>
           </motion.div>
           
@@ -64,10 +91,15 @@ export default function Footer() {
             viewport={{ once: true }}
             className="md:col-span-1"
           >
-            <h3 className="text-white font-semibold mb-4">Contact Info</h3>
-            <ul className="space-y-2">
-              <li><a href="mailto:contact@chronocoder.dev" className="text-gray-400 hover:text-primary transition-colors">contact@chronocoder.dev</a></li>
-              <li><a href="tel:+13023085960" className="text-gray-400 hover:text-primary transition-colors">+1 (302) 308-5960</a></li>
+            <h3 className="text-white font-semibold mb-4" id="contact-heading">Contact Info</h3>
+            <ul className="space-y-2" aria-labelledby="contact-heading" itemScope itemType="https://schema.org/Person">
+              <meta itemProp="name" content="ChronoCoder" />
+              <li>
+                <a href="mailto:contact@chronocoder.dev" className="text-gray-400 hover:text-primary transition-colors" itemProp="email">contact@chronocoder.dev</a>
+              </li>
+              <li>
+                <a href="tel:+13023085960" className="text-gray-400 hover:text-primary transition-colors" itemProp="telephone">+1 (302) 308-5960</a>
+              </li>
             </ul>
           </motion.div>
         </div>
@@ -83,17 +115,18 @@ export default function Footer() {
             © {new Date().getFullYear()} ChronoCoder. All rights reserved.
           </motion.p>
           
-          <motion.div 
+          <motion.nav 
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.5 }}
             viewport={{ once: true }}
             className="flex space-x-4 mt-4 md:mt-0"
+            aria-label="Legal Pages"
           >
             <a href="/privacy-policy" className="text-gray-400 hover:text-primary transition-colors text-sm">Privacy Policy</a>
             <a href="/terms-of-service" className="text-gray-400 hover:text-primary transition-colors text-sm">Terms of Service</a>
             <a href="/cookies-policy" className="text-gray-400 hover:text-primary transition-colors text-sm">Cookies Policy</a>
-          </motion.div>
+          </motion.nav>
         </div>
       </div>
     </footer>

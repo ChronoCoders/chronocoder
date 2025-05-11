@@ -21,9 +21,9 @@ export default function Navbar() {
   }`;
 
   return (
-    <header className={navClasses}>
+    <header className={navClasses} role="banner">
       <div className="container mx-auto px-4 flex items-center justify-between">
-        <a href="#home" className="flex items-center tracking-tight text-white">
+        <a href="#home" className="flex items-center tracking-tight text-white" aria-label="ChronoCoder - Home">
           <ChronoCoderLogo size="md" />
         </a>
 
@@ -31,23 +31,26 @@ export default function Navbar() {
         <button 
           className="lg:hidden p-2 text-white focus:outline-none" 
           onClick={() => setIsOpen(!isOpen)}
-          aria-label="Toggle menu"
+          aria-label="Toggle navigation menu"
+          aria-expanded={isOpen}
+          aria-controls="mobile-navigation"
         >
           {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </button>
 
         {/* Desktop menu */}
-        <nav className="hidden lg:flex items-center space-x-4 navbar-light-text">
-          <a href="#about" className="nav-link font-medium transition-colors duration-200">About</a>
-          <a href="#skills" className="nav-link font-medium transition-colors duration-200">Skills</a>
-          <a href="#services" className="nav-link font-medium transition-colors duration-200">Services</a>
-          <a href="#projects" className="nav-link font-medium transition-colors duration-200">Projects</a>
-          <a href="#contact" className="nav-link font-medium transition-colors duration-200">Contact</a>
+        <nav className="hidden lg:flex items-center space-x-4 navbar-light-text" role="navigation" aria-label="Main Navigation">
+          <a href="#about" className="nav-link font-medium transition-colors duration-200" aria-label="About section">About</a>
+          <a href="#skills" className="nav-link font-medium transition-colors duration-200" aria-label="Skills section">Skills</a>
+          <a href="#services" className="nav-link font-medium transition-colors duration-200" aria-label="Services section">Services</a>
+          <a href="#projects" className="nav-link font-medium transition-colors duration-200" aria-label="Projects section">Projects</a>
+          <a href="#contact" className="nav-link font-medium transition-colors duration-200" aria-label="Contact section">Contact</a>
         </nav>
       </div>
 
       {/* Mobile menu */}
       <motion.div 
+        id="mobile-navigation"
         initial={{ opacity: 0, height: 0 }}
         animate={{ 
           opacity: isOpen ? 1 : 0,
@@ -55,12 +58,15 @@ export default function Navbar() {
         }}
         transition={{ duration: 0.3 }}
         className={`lg:hidden glass-card overflow-hidden`}
+        aria-hidden={!isOpen}
+        role="menu"
       >
-        <nav className="flex flex-col space-y-3 p-4 navbar-light-text">
+        <nav className="flex flex-col space-y-3 p-4 navbar-light-text" aria-label="Mobile Navigation">
           <a 
             href="#about" 
             className="nav-link font-medium text-base flex items-center justify-center py-2 hover:bg-primary/10 rounded-md transition-colors"
             onClick={() => setIsOpen(false)}
+            role="menuitem"
           >
             About
           </a>
@@ -68,6 +74,7 @@ export default function Navbar() {
             href="#skills" 
             className="nav-link font-medium text-base flex items-center justify-center py-2 hover:bg-primary/10 rounded-md transition-colors"
             onClick={() => setIsOpen(false)}
+            role="menuitem"
           >
             Skills
           </a>
@@ -75,6 +82,7 @@ export default function Navbar() {
             href="#services" 
             className="nav-link font-medium text-base flex items-center justify-center py-2 hover:bg-primary/10 rounded-md transition-colors"
             onClick={() => setIsOpen(false)}
+            role="menuitem"
           >
             Services
           </a>
@@ -82,6 +90,7 @@ export default function Navbar() {
             href="#projects" 
             className="nav-link font-medium text-base flex items-center justify-center py-2 hover:bg-primary/10 rounded-md transition-colors"
             onClick={() => setIsOpen(false)}
+            role="menuitem"
           >
             Projects
           </a>
@@ -89,6 +98,7 @@ export default function Navbar() {
             href="#contact" 
             className="nav-link font-medium text-base flex items-center justify-center py-2 hover:bg-primary/10 rounded-md transition-colors"
             onClick={() => setIsOpen(false)}
+            role="menuitem"
           >
             Contact
           </a>

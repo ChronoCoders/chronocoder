@@ -43,10 +43,31 @@ export default function Home() {
     };
   }, []);
 
+  // Add page metadata
+  useEffect(() => {
+    // Update page title dynamically if needed
+    document.title = "ChronoCoder - Blockchain Solutions Architect & Smart Contract Developer";
+    
+    // You could also update meta description dynamically if needed
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', 
+        'Specialized blockchain architect and smart contract developer with expertise in DeFi, NFTs, and Web3 integration. Building secure, innovative decentralized solutions for tomorrow\'s digital economy.');
+    }
+  }, []);
+
   return (
     <div className="min-h-screen">
       <Navbar />
-      <main>
+      {/* Using semantic HTML5 elements for better SEO */}
+      <main id="content" role="main" itemScope itemType="https://schema.org/ProfilePage">
+        {/* Adding structured data attributes */}
+        <div itemProp="mainEntity" itemScope itemType="https://schema.org/Person">
+          <meta itemProp="name" content="ChronoCoder" />
+          <meta itemProp="jobTitle" content="Blockchain Solutions Architect" />
+          <meta itemProp="description" content="Blockchain Solutions Architect specializing in smart contract development, DeFi protocols, and Web3 infrastructure" />
+        </div>
+        
         <HeroSection />
         <AboutSection />
         <SkillsSection />
