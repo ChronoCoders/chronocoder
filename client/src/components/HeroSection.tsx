@@ -49,7 +49,45 @@ export default function HeroSection() {
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 md:mb-4 leading-tight"
           >
             <span className="block">Blockchain Solutions Architect</span>
-            <span className="gradient-text block mt-1" style={{display: 'block', width: 'fit-content', margin: '0 auto'}}>Building the Decentralized Future</span>
+            <div className="mt-1" style={{display: 'block', margin: '0 auto', textAlign: 'center'}}>
+              {/* Apply gradients to individual letters to avoid render issues */}
+              <span style={{
+                background: 'linear-gradient(90deg, #575AFF 0%, #9747FF 50%, #E94BFF 100%)',
+                WebkitBackgroundClip: 'text',
+                backgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                WebkitFontSmoothing: 'antialiased',
+                fontWeight: 'inherit',
+                fontSize: 'inherit',
+              }}>B</span>
+              <span style={{
+                background: 'linear-gradient(90deg, #5F59FF 0%, #9847FF 50%, #E94BFF 100%)',
+                WebkitBackgroundClip: 'text',
+                backgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                WebkitFontSmoothing: 'antialiased',
+                fontWeight: 'inherit',
+                fontSize: 'inherit',
+              }}>uildin</span>
+              <span style={{
+                background: 'linear-gradient(90deg, #6857FF 0%, #9B45FF 50%, #E94BFF 100%)',
+                WebkitBackgroundClip: 'text',
+                backgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                WebkitFontSmoothing: 'antialiased',
+                fontWeight: 'inherit',
+                fontSize: 'inherit',
+              }}>g</span>
+              <span style={{
+                background: 'linear-gradient(90deg, #7255FF 0%, #9E43FF 50%, #EA4BFF 100%)',
+                WebkitBackgroundClip: 'text',
+                backgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                WebkitFontSmoothing: 'antialiased',
+                fontWeight: 'inherit',
+                fontSize: 'inherit',
+              }}> the Decentralized Future</span>
+            </div>
           </motion.h1>
           
           <motion.p 
