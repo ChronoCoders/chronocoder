@@ -1,0 +1,21 @@
+{
+  "buildConfig": {
+    "output": "dist/public",
+    "rootDir": "./",
+    "builds": [
+      {
+        "src": "package.json",
+        "use": "@cloudflare/static-build",
+        "config": { 
+          "zeroConfig": true,
+          "buildCommand": "npm run build",
+          "distDir": "dist/public"
+        }
+      }
+    ],
+    "routes": [
+      { "handle": "filesystem" },
+      { "src": "/.*", "dest": "/index.html" }
+    ]
+  }
+}

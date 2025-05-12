@@ -1,0 +1,26 @@
+# Basic configuration for Cloudflare Workers/Pages
+name = "chronocoder-portfolio"
+type = "webpack"
+account_id = "" # You'll need to add your Cloudflare account ID here
+workers_dev = true
+route = ""
+zone_id = "" # Add your zone ID if you have a custom domain
+
+# Static site configuration
+[site]
+bucket = "./dist/public"
+entry-point = "."
+
+# Environment variable bindings
+[vars]
+ENVIRONMENT = "production"
+
+# Development configuration
+[dev]
+port = 8787
+local_protocol = "http"
+
+# Build configuration - tell Cloudflare to just use our existing build output
+[build]
+command = "" # Leave empty to use the pre-built assets
+upload.format = "service-worker"
