@@ -102,7 +102,7 @@ export default function ContactSection() {
               <h4 className="text-base sm:text-lg font-medium mb-3 sm:mb-4 text-white">Find Me On GitHub</h4>
               <div className="flex space-x-4">
                 <a 
-                  href="https://github.com/chronocoder" 
+                  href="https://github.com/ChronoCoders" 
                   className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-background/50 flex items-center justify-center text-white hover:bg-primary/20 transition-colors duration-200 border border-gray-800"
                   aria-label="GitHub"
                   target="_blank"
