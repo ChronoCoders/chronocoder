@@ -17,7 +17,7 @@ type ProjectCategory = "all" | "defi" | "banking" | "infrastructure";
 interface Project {
   title: string;
   description: string;
-  image: string;
+  image: string | any; // Updated to accommodate both string paths and imported images
   tags: string[];
   categories: ProjectCategory[];
 }
@@ -26,42 +26,42 @@ const projects: Project[] = [
   {
     title: "Bytus Cryptocurrency Banking",
     description: "A comprehensive crypto banking platform integrating traditional banking services with cryptocurrency functionality, featuring secure wallets, fiat on/off ramps, and institutional-grade custody solutions.",
-    image: "/src/assets/crypto-banking.svg",
+    image: cryptoBankingImg,
     tags: ["Banking", "Crypto", "KYC/AML", "Security"],
     categories: ["banking"]
   },
   {
     title: "Tetra Gold",
     description: "A synthetic token for gold with real-world asset tokenization, automated vault management, and decentralized governance for transparent trading.",
-    image: "/src/assets/gold-token.svg",
+    image: goldTokenImg,
     tags: ["DeFi", "Synthetic Assets", "Tokenization"],
     categories: ["defi"]
   },
   {
     title: "StakeRise",
     description: "An advanced staking protocol with dynamic yield optimization, cross-chain liquidity aggregation, and automated compounding strategies for maximized returns.",
-    image: "/src/assets/staking-protocol.svg",
+    image: stakingProtocolImg,
     tags: ["Staking", "Yield", "Cross-chain"],
     categories: ["defi"]
   },
   {
     title: "Cross-Chain Bridge Protocol",
     description: "A secure bridge infrastructure enabling seamless asset transfer across multiple blockchain networks with automated security monitoring and liquidity management.",
-    image: "/src/assets/bridge-protocol.svg",
+    image: bridgeProtocolImg,
     tags: ["Bridge", "Security", "Multi-chain"],
     categories: ["infrastructure"]
   },
   {
     title: "DeFi Yield Aggregator",
     description: "An intelligent yield farming protocol that automatically allocates assets across multiple DeFi platforms to maximize returns while minimizing risk and gas costs.",
-    image: "/src/assets/defi-yield.svg",
+    image: defiYieldImg,
     tags: ["DeFi", "Yield Farming", "Automation"],
     categories: ["defi"]
   },
   {
     title: "Blockchain Analytics Platform",
     description: "A comprehensive analytics suite providing real-time insights into blockchain metrics, DeFi protocols, and market trends with advanced visualization tools.",
-    image: "/src/assets/blockchain-analytics.svg",
+    image: blockchainAnalyticsImg,
     tags: ["Analytics", "Data", "Visualization"],
     categories: ["infrastructure"]
   }
