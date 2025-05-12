@@ -4,6 +4,14 @@ import { staggerContainer, fadeIn } from "@/lib/motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
+// Import images directly - this ensures they are bundled correctly
+import cryptoBankingImg from "@/assets/crypto-banking.svg";
+import goldTokenImg from "@/assets/gold-token.svg";
+import stakingProtocolImg from "@/assets/staking-protocol.svg";
+import bridgeProtocolImg from "@/assets/bridge-protocol.svg";
+import defiYieldImg from "@/assets/defi-yield.svg";
+import blockchainAnalyticsImg from "@/assets/blockchain-analytics.svg";
+
 type ProjectCategory = "all" | "defi" | "banking" | "infrastructure";
 
 interface Project {
