@@ -347,7 +347,7 @@ export default function ProjectsSection() {
                   />
                   {project.featured && (
                     <div className="absolute top-2 left-2">
-                      <Badge variant="secondary" className="bg-primary/20 text-primary text-xs">Featured</Badge>
+                      <Badge variant="secondary\" className="bg-primary/20 text-primary text-xs">Featured</Badge>
                     </div>
                   )}
                 </div>
