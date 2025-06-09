@@ -101,8 +101,10 @@
   
   /* Code animation styles */
   .code-block {
-    @apply font-mono rounded-xl p-6 overflow-hidden;
+    @apply font-mono rounded-xl p-3 sm:p-6 overflow-hidden;
     @apply text-[#4A88F0] bg-[#111A33] border border-transparent;
+    min-height: 200px;
+    position: relative;
   }
   
   .code-block .token-keyword {
@@ -119,6 +121,14 @@
   
   .code-block .token-bracket {
     @apply text-[#A6B8FF];
+  }
+
+  /* Mobile-specific code block adjustments */
+  @media (max-width: 640px) {
+    .code-block {
+      min-height: 180px;
+      font-size: 0.75rem;
+    }
   }
   
   /* Modern tab design */

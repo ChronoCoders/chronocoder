@@ -8,18 +8,20 @@ export function CodeAnimation() {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
     >
-      <div className="absolute top-5 right-5 bg-[#4A88F0] text-white py-3 px-5 rounded-lg font-sans text-lg font-semibold shadow-lg">
-        <span className="text-3xl font-bold">5+</span><br />
-        Years in<br />Blockchain
+      {/* Mobile-responsive badge positioning */}
+      <div className="absolute top-3 right-3 sm:top-5 sm:right-5 bg-[#4A88F0] text-white py-2 px-3 sm:py-3 sm:px-5 rounded-lg font-sans text-sm sm:text-lg font-semibold shadow-lg z-20">
+        <span className="text-xl sm:text-3xl font-bold block">5+</span>
+        <span className="text-xs sm:text-sm block leading-tight">Years in</span>
+        <span className="text-xs sm:text-sm block leading-tight">Blockchain</span>
       </div>
       
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.5, duration: 0.5 }}
-        className="relative z-10"
+        className="relative z-10 pt-4 sm:pt-0"
       >
-        <div className="mb-4">
+        <div className="mb-2 sm:mb-4 text-base sm:text-xl">
           <span className="token-keyword">contract</span> DeFi <span className="token-bracket">{'{'}</span>
         </div>
         
@@ -27,7 +29,7 @@ export function CodeAnimation() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1, duration: 0.5 }}
-          className="ml-8 mb-2"
+          className="ml-4 sm:ml-8 mb-1 sm:mb-2 text-sm sm:text-xl"
         >
           <span className="token-function">function</span> build() <span className="token-bracket">{'{'}</span>
         </motion.div>
@@ -36,7 +38,7 @@ export function CodeAnimation() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.5, duration: 0.5 }}
-          className="ml-16 mb-2"
+          className="ml-8 sm:ml-16 mb-1 sm:mb-2 text-xs sm:text-xl"
         >
           <span className="token-comment">// Future of</span><br />
           <span className="token-comment">// Finance</span>
@@ -46,7 +48,7 @@ export function CodeAnimation() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 2, duration: 0.5 }}
-          className="ml-8 mb-2"
+          className="ml-4 sm:ml-8 mb-1 sm:mb-2 text-sm sm:text-xl"
         >
           <span className="token-bracket">{'}'}</span>
         </motion.div>
@@ -55,6 +57,7 @@ export function CodeAnimation() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 2.5, duration: 0.5 }}
+          className="text-base sm:text-xl"
         >
           <span className="token-bracket">{'}'}</span>
         </motion.div>
@@ -64,14 +67,14 @@ export function CodeAnimation() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 3, duration: 0.5 }}
-        className="absolute bottom-6 left-6 text-white font-sans text-xl font-semibold"
+        className="absolute bottom-3 left-3 sm:bottom-6 sm:left-6 text-white font-sans text-sm sm:text-xl font-semibold z-10"
       >
         Innovating with Blockchain
       </motion.div>
       
-      {/* Glowing cursor animation */}
+      {/* Glowing cursor animation - responsive positioning */}
       <motion.div 
-        className="absolute h-5 w-2 bg-primary"
+        className="absolute h-3 w-1 sm:h-5 sm:w-2 bg-primary hidden sm:block"
         initial={{ opacity: 1, left: 310, top: 182 }}
         animate={{ opacity: [1, 0, 1, 0, 1] }}
         transition={{ repeat: Infinity, duration: 1 }}

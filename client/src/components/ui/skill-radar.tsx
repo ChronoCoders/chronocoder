@@ -179,7 +179,7 @@ const SkillDetailCard = ({ skill, isVisible }: SkillDetailCardProps) => {
   
   return (
     <motion.div 
-      className="absolute top-0 right-4 w-72 bg-card/90 border border-border rounded-lg shadow-lg p-5 z-10 overflow-hidden backdrop-blur-sm"
+      className="absolute top-0 right-0 sm:right-4 w-full sm:w-72 bg-card/90 border border-border rounded-lg shadow-lg p-3 sm:p-5 z-10 overflow-hidden backdrop-blur-sm"
       initial={{ opacity: 0, height: 0 }}
       animate={{ 
         opacity: isVisible ? 1 : 0,
@@ -187,7 +187,7 @@ const SkillDetailCard = ({ skill, isVisible }: SkillDetailCardProps) => {
       }}
       transition={{ duration: 0.3 }}
     >
-      <h3 className="text-lg font-semibold text-foreground">{skill.name}</h3>
+      <h3 className="text-base sm:text-lg font-semibold text-foreground">{skill.name}</h3>
       <div className="flex items-center my-2">
         <div className="flex-1 h-2 bg-muted rounded-full overflow-hidden">
           <div 
@@ -195,10 +195,10 @@ const SkillDetailCard = ({ skill, isVisible }: SkillDetailCardProps) => {
             style={{ width: `${skill.value}%` }}
           ></div>
         </div>
-        <span className="ml-3 text-foreground font-medium">{skill.value}%</span>
+        <span className="ml-3 text-foreground font-medium text-sm sm:text-base">{skill.value}%</span>
       </div>
-      <p className="text-sm text-muted-foreground mt-3 leading-relaxed">{skill.description}</p>
-      <div className="mt-4 text-sm">
+      <p className="text-xs sm:text-sm text-muted-foreground mt-3 leading-relaxed">{skill.description}</p>
+      <div className="mt-4 text-xs sm:text-sm">
         <p className="text-foreground">
           <span className="font-medium">Experience:</span> {yearsExperience} years
         </p>
@@ -222,6 +222,17 @@ interface SkillRadarProps {
 
 export function SkillRadar({ activeCategory, onHoverSkill }: SkillRadarProps) {
   const [hoveredSkill, setHoveredSkill] = useState<SkillDetail | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
+  
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
   
   const handleRadarMouseEnter = (data: any) => {
     if (data && data.payload && data.payload.detail) {
@@ -250,8 +261,8 @@ export function SkillRadar({ activeCategory, onHoverSkill }: SkillRadarProps) {
       const data = payload[0].payload;
       return (
         <div className="bg-card/90 backdrop-blur-sm p-3 border border-border rounded-md shadow-lg">
-          <p className="font-semibold text-foreground">{data[nameKey]}</p>
-          <p className="text-primary font-medium">{`${data[dataKey]}% Proficiency`}</p>
+          <p className="font-semibold text-foreground text-sm">{data[nameKey]}</p>
+          <p className="text-primary font-medium text-sm">{`${data[dataKey]}% Proficiency`}</p>
         </div>
       );
     }
@@ -269,14 +280,14 @@ export function SkillRadar({ activeCategory, onHoverSkill }: SkillRadarProps) {
   };
 
   return (
-    <div className="relative w-full h-[400px]">
-      {/* Chart container */}
-      <div className="w-full h-full rounded-xl p-4 bg-[#111A33] border border-border shadow-sm">
+    <div className="relative w-full">
+      {/* Chart container - responsive height */}
+      <div className="w-full h-[300px] sm:h-[400px] rounded-xl p-2 sm:p-4 bg-[#111A33] border border-border shadow-sm">
         <ResponsiveContainer width="100%" height="100%">
           <RadarChart 
             cx="50%" 
             cy="50%" 
-            outerRadius="70%" 
+            outerRadius={isMobile ? "60%" : "70%"} 
             data={radarData}
             onMouseMove={(e) => e && e.activePayload && handleRadarMouseEnter(e.activePayload[0])}
             onMouseLeave={handleRadarMouseLeave}
@@ -295,7 +306,7 @@ export function SkillRadar({ activeCategory, onHoverSkill }: SkillRadarProps) {
               dataKey={nameKey} 
               tick={{ 
                 fill: chartConfig.textColor, 
-                fontSize: 13, 
+                fontSize: isMobile ? 10 : 13, 
                 fontWeight: 600 
               }}
               axisLine={{ 
@@ -311,7 +322,7 @@ export function SkillRadar({ activeCategory, onHoverSkill }: SkillRadarProps) {
               domain={[0, 100]} 
               tick={{ 
                 fill: chartConfig.textColor, 
-                fontSize: 11,
+                fontSize: isMobile ? 9 : 11,
                 fontWeight: 'bold'
               }}
               tickCount={4}
@@ -328,7 +339,7 @@ export function SkillRadar({ activeCategory, onHoverSkill }: SkillRadarProps) {
               fillOpacity={chartConfig.fillOpacity}
               strokeWidth={3}
               activeDot={{ 
-                r: 8, 
+                r: isMobile ? 6 : 8, 
                 stroke: chartConfig.primaryColor, 
                 fill: "white", 
                 strokeWidth: 3
@@ -338,22 +349,24 @@ export function SkillRadar({ activeCategory, onHoverSkill }: SkillRadarProps) {
             {/* Interactive tooltip */}
             <Tooltip content={<CustomTooltip />} />
             
-            {/* Legend below the chart */}
-            <Legend 
-              formatter={(value) => (
-                <span className="text-gray-200 font-medium">{value}</span>
-              )} 
-              iconSize={10}
-              wrapperStyle={{ 
-                paddingTop: 10,
-                fontSize: '0.875rem' 
-              }}
-            />
+            {/* Legend below the chart - hide on mobile if too crowded */}
+            {!isMobile && (
+              <Legend 
+                formatter={(value) => (
+                  <span className="text-gray-200 font-medium text-sm">{value}</span>
+                )} 
+                iconSize={8}
+                wrapperStyle={{ 
+                  paddingTop: 10,
+                  fontSize: '0.75rem' 
+                }}
+              />
+            )}
           </RadarChart>
         </ResponsiveContainer>
       </div>
 
-      {/* Detailed skill information card */}
+      {/* Detailed skill information card - mobile responsive */}
       <SkillDetailCard 
         skill={hoveredSkill || undefined} 
         isVisible={!!hoveredSkill} 
