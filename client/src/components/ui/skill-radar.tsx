@@ -260,9 +260,9 @@ export function SkillRadar({ activeCategory, onHoverSkill }: SkillRadarProps) {
     if (active && payload && payload.length) {
       const data = payload[0].payload;
       return (
-        <div className="bg-card/90 backdrop-blur-sm p-3 border border-border rounded-md shadow-lg">
-          <p className="font-semibold text-foreground text-sm">{data[nameKey]}</p>
-          <p className="text-primary font-medium text-sm">{`${data[dataKey]}% Proficiency`}</p>
+        <div className="bg-card/90 backdrop-blur-sm p-3 border border-border rounded-md shadow-lg text-center">
+          <p className="font-semibold text-foreground text-sm text-center">{data[nameKey]}</p>
+          <p className="text-primary font-medium text-sm text-center">{`${data[dataKey]}% Proficiency`}</p>
         </div>
       );
     }
@@ -307,13 +307,15 @@ export function SkillRadar({ activeCategory, onHoverSkill }: SkillRadarProps) {
               tick={{ 
                 fill: chartConfig.textColor, 
                 fontSize: isMobile ? 10 : 13, 
-                fontWeight: 600 
+                fontWeight: 600,
+                textAnchor: 'middle'
               }}
               axisLine={{ 
                 stroke: chartConfig.gridColor, 
                 strokeWidth: 2 
               }}
               tickLine={false}
+              className="text-center"
             />
             
             {/* Skill value axis */}
@@ -323,11 +325,13 @@ export function SkillRadar({ activeCategory, onHoverSkill }: SkillRadarProps) {
               tick={{ 
                 fill: chartConfig.textColor, 
                 fontSize: isMobile ? 9 : 11,
-                fontWeight: 'bold'
+                fontWeight: 'bold',
+                textAnchor: 'middle'
               }}
               tickCount={4}
               stroke={chartConfig.gridColor}
               axisLine={false}
+              className="text-center"
             />
             
             {/* The radar itself */}

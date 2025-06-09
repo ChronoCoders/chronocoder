@@ -19,13 +19,13 @@ export default function SkillBar({ name, percentage, delay = 0 }: SkillBarProps)
       }}
       viewport={{ once: true }}
     >
-      <div className="flex justify-between mb-1">
+      <div className="flex justify-between items-center mb-2">
         <span className="font-medium text-foreground">{name}</span>
-        <span className="text-muted-foreground">{percentage}%</span>
+        <span className="text-muted-foreground font-semibold">{percentage}%</span>
       </div>
-      <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
+      <div className="h-3 bg-gray-200 rounded-full overflow-hidden relative">
         <motion.div 
-          className="skill-bar h-full bg-gradient rounded-full"
+          className="skill-bar h-full bg-gradient rounded-full relative"
           style={{ "--progress-width": `${percentage}%` } as React.CSSProperties}
           initial={{ width: 0 }}
           whileInView={{ width: `${percentage}%` }}
@@ -35,7 +35,13 @@ export default function SkillBar({ name, percentage, delay = 0 }: SkillBarProps)
             ease: "easeOut" 
           }}
           viewport={{ once: true }}
-        />
+        >
+          <div className="absolute inset-0 flex items-center justify-end pr-2">
+            <span className="text-xs font-bold text-white opacity-0 animate-pulse">
+              {percentage}%
+            </span>
+          </div>
+        </motion.div>
       </div>
     </motion.div>
   );
