@@ -193,12 +193,20 @@ export default function ProjectsSection() {
   const [activeCategory, setActiveCategory] = useState<ProjectCategory>("all");
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
-  const filteredProjects = projects.filter(
-    project => activeCategory === "all" || project.categories.includes(activeCategory)
-  );
+  // Enhanced filtering logic with debugging
+  const filteredProjects = projects.filter(project => {
+    if (activeCategory === "all") {
+      return true;
+    }
+    return project.categories.includes(activeCategory);
+  });
 
   const featuredProjects = projects.filter(project => project.featured);
 
+  // Debug logging for development
+  console.log("Active Category:", activeCategory);
+  console.log("Filtered Projects:", filteredProjects.length);
+  console.log("All Projects:", projects.length);
   return (
     <section id="projects" className="py-12 sm:py-16 md:py-20 bg-card overflow-hidden relative">
       <motion.div 
@@ -328,7 +336,13 @@ export default function ProjectsSection() {
         </motion.div>
         
         {/* All Projects Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 mb-8 sm:mb-10 md:mb-12">
+        <motion.div 
+          key={activeCategory} // Force re-render when category changes
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.3 }}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 mb-8 sm:mb-10 md:mb-12"
+        >
           {filteredProjects.map((project, index) => (
             <motion.div
               key={project.title}
@@ -384,7 +398,26 @@ export default function ProjectsSection() {
               </Card>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
+
+        {/* No projects message */}
+        {filteredProjects.length === 0 && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="text-center py-12"
+          >
+            <p className="text-gray-400 text-lg">
+              No projects found in the {categories.find(c => c.value === activeCategory)?.label} category.
+            </p>
+            <button
+              onClick={() => setActiveCategory("all")}
+              className="mt-4 text-primary hover:text-primary/80 transition-colors"
+            >
+              View all projects
+            </button>
+          </motion.div>
+        )}
       </motion.div>
 
       {/* Case Study Modal */}
