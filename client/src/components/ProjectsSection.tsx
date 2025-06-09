@@ -41,7 +41,7 @@ interface Project {
 
 const projects: Project[] = [
   {
-    title: "Bytus Cryptocurrency Banking",
+    title: "Bytus Banking",
     description: "A comprehensive crypto banking platform integrating traditional banking services with cryptocurrency functionality, featuring secure wallets, fiat on/off ramps, and institutional-grade custody solutions.",
     image: cryptoBankingImg,
     tags: ["Banking", "Crypto", "KYC/AML", "Security"],
