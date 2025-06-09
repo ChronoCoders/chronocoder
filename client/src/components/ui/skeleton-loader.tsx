@@ -138,9 +138,9 @@ export function SkeletonButton({ className }: { className?: string }) {
 export function ProjectCardSkeleton() {
   return (
     <div className="bg-background rounded-xl overflow-hidden shadow-xl border border-gray-800 p-6">
-      <Skeleton height="200px" className="mb-4" />
+      <Skeleton height="200px\" className="mb-4" />
       <div className="space-y-3">
-        <Skeleton height="1.5rem" width="80%" />
+        <Skeleton height="1.5rem\" width="80%" />
         <SkeletonText lines={3} />
         <div className="flex gap-2">
           <Skeleton height="1.5rem" width="3rem" />
