@@ -5,6 +5,7 @@ import SkillBar from "@/components/SkillBar";
 import SkillRadar from "@/components/ui/skill-radar";
 import { Info } from "lucide-react";
 
+// Define skills data structure
 type SkillCategory = "all" | "blockchain" | "defi" | "security" | "tools";
 
 interface Skill {
@@ -21,8 +22,7 @@ interface SkillDetail {
   relatedProjects: string[];
 }
 
-// This data is now duplicated in the SkillRadar component
-// In a production app, we would move this to a shared location
+// Enhanced skills data with detailed information
 const skills: Skill[] = [
   { name: "Solidity", percentage: 95, category: ["blockchain"] },
   { name: "Smart Contracts", percentage: 90, category: ["blockchain"] },
@@ -78,9 +78,10 @@ export default function SkillsSection() {
           variants={fadeIn("up", "tween", 0.2, 1)}
           className="text-muted-foreground text-center max-w-2xl mx-auto mb-6"
         >
-          Comprehensive knowledge in blockchain development, DeFi protocols, and Web3 infrastructure.
+          Comprehensive expertise in blockchain development, DeFi protocols, and Web3 infrastructure
         </motion.p>
         
+        {/* View Mode Toggle */}
         <motion.div 
           variants={fadeIn("up", "tween", 0.25, 1)}
           className="flex justify-center mb-4 gap-4"
@@ -116,6 +117,7 @@ export default function SkillsSection() {
           </button>
         </motion.div>
         
+        {/* Category Filter */}
         <motion.div 
           variants={fadeIn("up", "tween", 0.3, 1)}
           className="flex flex-wrap justify-center gap-2 mb-8"
@@ -135,12 +137,13 @@ export default function SkillsSection() {
           ))}
         </motion.div>
         
+        {/* Skills Visualization */}
         {viewMode === "radar" ? (
           <motion.div
             variants={fadeIn("up", "tween", 0.4, 1)}
             className="mt-8 relative"
           >
-            <div className="absolute top-0 right-0 flex items-center gap-2 text-gray-300 text-sm bg-[#111A33]/70 backdrop-blur-sm px-3 py-1 rounded-md border border-border">
+            <div className="absolute top-0 right-0 flex items-center gap-2 text-gray-300 text-sm bg-[#111A33]/70 backdrop-blur-sm px-3 py-1 rounded-md border border-border z-20">
               <Info size={16} className="text-primary" />
               <span>Hover over the radar chart to see detailed information</span>
             </div>
@@ -164,6 +167,60 @@ export default function SkillsSection() {
             ))}
           </motion.div>
         )}
+
+        {/* Skill Categories Overview */}
+        <motion.div 
+          variants={fadeIn("up", "tween", 0.5, 1)}
+          className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+        >
+          <div className="bg-card/50 rounded-xl p-6 border border-gray-800 hover:border-primary/30 transition-colors">
+            <h3 className="text-lg font-semibold text-white mb-3">Blockchain Core</h3>
+            <p className="text-gray-400 text-sm mb-4">
+              Deep expertise in blockchain architecture, consensus mechanisms, and smart contract development
+            </p>
+            <div className="flex flex-wrap gap-1">
+              <span className="text-xs bg-primary/20 text-primary px-2 py-1 rounded">Solidity</span>
+              <span className="text-xs bg-primary/20 text-primary px-2 py-1 rounded">EVM</span>
+              <span className="text-xs bg-primary/20 text-primary px-2 py-1 rounded">Web3</span>
+            </div>
+          </div>
+
+          <div className="bg-card/50 rounded-xl p-6 border border-gray-800 hover:border-primary/30 transition-colors">
+            <h3 className="text-lg font-semibold text-white mb-3">DeFi Protocols</h3>
+            <p className="text-gray-400 text-sm mb-4">
+              Advanced knowledge of decentralized finance, liquidity pools, yield farming, and protocol design
+            </p>
+            <div className="flex flex-wrap gap-1">
+              <span className="text-xs bg-secondary/20 text-secondary px-2 py-1 rounded">AMMs</span>
+              <span className="text-xs bg-secondary/20 text-secondary px-2 py-1 rounded">Yield</span>
+              <span className="text-xs bg-secondary/20 text-secondary px-2 py-1 rounded">Lending</span>
+            </div>
+          </div>
+
+          <div className="bg-card/50 rounded-xl p-6 border border-gray-800 hover:border-primary/30 transition-colors">
+            <h3 className="text-lg font-semibold text-white mb-3">Security</h3>
+            <p className="text-gray-400 text-sm mb-4">
+              Comprehensive security auditing, vulnerability assessment, and secure development practices
+            </p>
+            <div className="flex flex-wrap gap-1">
+              <span className="text-xs bg-accent/20 text-accent px-2 py-1 rounded">Auditing</span>
+              <span className="text-xs bg-accent/20 text-accent px-2 py-1 rounded">ZK-Proofs</span>
+              <span className="text-xs bg-accent/20 text-accent px-2 py-1 rounded">Bridges</span>
+            </div>
+          </div>
+
+          <div className="bg-card/50 rounded-xl p-6 border border-gray-800 hover:border-primary/30 transition-colors">
+            <h3 className="text-lg font-semibold text-white mb-3">Development Tools</h3>
+            <p className="text-gray-400 text-sm mb-4">
+              Proficiency with cutting-edge blockchain development tools and infrastructure
+            </p>
+            <div className="flex flex-wrap gap-1">
+              <span className="text-xs bg-primary/20 text-primary px-2 py-1 rounded">Hardhat</span>
+              <span className="text-xs bg-primary/20 text-primary px-2 py-1 rounded">IPFS</span>
+              <span className="text-xs bg-primary/20 text-primary px-2 py-1 rounded">Oracles</span>
+            </div>
+          </div>
+        </motion.div>
       </motion.div>
     </section>
   );
