@@ -238,11 +238,11 @@ export default function HeroSection() {
 
           <motion.div 
             variants={fadeIn("up", "tween", 0.5, 1)}
-            className="relative bg-card/60 backdrop-blur-sm rounded-lg p-3 md:p-4 max-w-lg w-full shadow-lg border border-gray-800 mb-6 md:mb-8 group"
+            className="relative bg-card/60 backdrop-blur-sm rounded-lg p-3 md:p-4 max-w-lg w-full shadow-lg border border-gray-800 mb-6 md:mb-8 group mx-auto"
             whileHover={{ scale: 1.02, borderColor: "#575AFF" }}
             transition={{ type: "spring", stiffness: 300 }}
           >
-            <div className="flex items-center mb-2">
+            <div className="flex items-center justify-center mb-2">
               <div className="flex space-x-1">
                 <motion.div 
                   className="w-2 h-2 md:w-3 md:h-3 rounded-full bg-red-500"
@@ -260,9 +260,9 @@ export default function HeroSection() {
                   transition={{ duration: 2, repeat: Infinity, delay: 0.6 }}
                 />
               </div>
-              <div className="ml-2 text-xs text-gray-400">smart-contract.sol</div>
+              <div className="ml-2 text-xs text-gray-400 text-center">smart-contract.sol</div>
             </div>
-            <pre className="text-left overflow-x-auto text-xs sm:text-sm font-mono text-gray-300 whitespace-pre-wrap">
+            <pre className="text-center overflow-x-auto text-xs sm:text-sm font-mono text-gray-300 whitespace-pre-wrap">
               <code>{typedCode}</code>
             </pre>
           </motion.div>

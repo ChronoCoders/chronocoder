@@ -105,6 +105,11 @@
     @apply text-[#4A88F0] bg-[#111A33] border border-transparent;
     min-height: 200px;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
   }
   
   .code-block .token-keyword {
@@ -140,6 +145,7 @@
   .modern-tab-trigger {
     @apply relative transition-all duration-200 flex items-center justify-center;
     @apply text-gray-400;
+    text-align: center;
   }
   
   .modern-tab-trigger:hover:not([data-state="active"]) {
@@ -166,6 +172,10 @@
 
   .skill-bar {
     --progress-width: 0%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .animate-progressBar {
@@ -177,6 +187,42 @@
     100% { width: var(--progress-width); }
   }
 
+  /* Circular element text centering */
+  .circular-element {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+  }
+
+  .circular-element .text-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    text-align: center;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Chart text alignment */
+  .recharts-text {
+    text-anchor: middle !important;
+    dominant-baseline: central !important;
+  }
+
+  .recharts-polar-angle-axis .recharts-text {
+    text-anchor: middle !important;
+  }
+
+  .recharts-polar-radius-axis .recharts-text {
+    text-anchor: middle !important;
+  }
   .animate-glow {
     animation: glow 3s infinite;
   }

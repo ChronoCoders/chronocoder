@@ -265,18 +265,21 @@ export default function ProjectsSection() {
                   </div>
                   
                   <CardContent className="p-6">
-                    <div className="flex items-center gap-2 mb-3">
+                    <div className="flex items-center gap-2 mb-4">
                       <Badge variant="secondary" className="bg-primary/20 text-primary">Featured</Badge>
                       <Badge variant="outline" className="text-xs">{project.metrics.duration}</Badge>
                     </div>
                     
-                    <h3 className="text-xl font-semibold mb-3 text-white group-hover:text-primary transition-colors">
+                    <h3 className="text-xl font-semibold mb-3 text-white group-hover:text-primary transition-colors line-clamp-2 text-center">
                       {project.title}
                     </h3>
-                    <p className="text-gray-400 mb-4 text-sm line-clamp-3">{project.description}</p>
                     
-                    <div className="flex items-center justify-between mb-4">
-                      <div className="flex items-center gap-4 text-xs text-gray-500">
+                    <p className="text-gray-400 mb-4 text-sm line-clamp-3 text-center">
+                      {project.description}
+                    </p>
+                    
+                    <div className="flex items-center justify-center mb-4">
+                      <div className="flex items-center gap-4 text-xs text-gray-500 text-center">
                         <div className="flex items-center gap-1">
                           <Users className="h-3 w-3" />
                           <span>{project.metrics.teamSize}</span>
@@ -288,7 +291,7 @@ export default function ProjectsSection() {
                       </div>
                     </div>
                     
-                    <div className="flex flex-wrap gap-1.5 mb-4">
+                    <div className="flex flex-wrap gap-1.5 mb-4 justify-center">
                       {project.tags.slice(0, 3).map((tag, tagIndex) => (
                         <span 
                           key={tagIndex} 
@@ -304,7 +307,7 @@ export default function ProjectsSection() {
                       )}
                     </div>
                     
-                    <div className="flex items-center text-primary text-sm font-medium group-hover:gap-2 transition-all">
+                    <div className="flex items-center justify-center text-primary text-sm font-medium group-hover:gap-2 transition-all">
                       <span>View Case Study</span>
                       <ArrowRight className="h-4 w-4 transform group-hover:translate-x-1 transition-transform" />
                     </div>

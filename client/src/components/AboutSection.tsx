@@ -70,7 +70,7 @@ export default function AboutSection() {
           {features.map((feature, index) => (
             <motion.div
               key={index}
-              className="bg-card border border-gray-800 rounded-xl p-6 hover:border-primary/50 transition-colors duration-300"
+              className="bg-card border border-gray-800 rounded-xl p-6 hover:border-primary/50 transition-colors duration-300 text-center"
               whileHover={{ y: -5 }}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -83,8 +83,8 @@ export default function AboutSection() {
                 ease: "easeOut" 
               }}
             >
-              <h3 className="text-xl font-semibold mb-2 text-white">{feature.title}</h3>
-              <p className="text-gray-400">{feature.description}</p>
+              <h3 className="text-xl font-semibold mb-2 text-white text-center">{feature.title}</h3>
+              <p className="text-gray-400 text-center">{feature.description}</p>
             </motion.div>
           ))}
         </motion.div>
